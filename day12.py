@@ -8,3 +8,5 @@ with open('solve12b', 'r') as file:
 dots = [1*(e == '.') for e in contents]
 print(f'Part B: {sum(dots)}')
 
+# This one was laziness. If prompted, I'd resort to A*
+# and create a graph with the next possible directions.
