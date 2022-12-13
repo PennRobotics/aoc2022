@@ -1,4 +1,4 @@
-DEBUG = print if True else lambda *s: None
+DEBUG = print if False else lambda *s: None
 
 from itertools import zip_longest, count
 from functools import cmp_to_key
@@ -16,11 +16,9 @@ def check_lists(l, r):
     right_order = UNDECIDED
     for p in zip_longest(l, r):
         if not p[0]:
-            DEBUG(''.join([' ']*indent) + f'  - Compare {p[0]} vs {p[1]}')
             right_order = YES
             break
         if not p[1]:
-            DEBUG(''.join([' ']*indent) + f'  - Compare {p[0]} vs {p[1]}')
             right_order = NO
             break
         if isinstance(p[0], int) and isinstance(p[1], int):
@@ -32,8 +30,8 @@ def check_lists(l, r):
             else:
                 right_order = NO
             break
-        list_l = p[0] if not isinstance(p[0], int) else [p[0]]
-        list_r = p[1] if not isinstance(p[1], int) else [p[1]]
+        list_l = p[0] if isinstance(p[0], list) else [p[0]]
+        list_r = p[1] if isinstance(p[1], list) else [p[1]]
         right_order = check_lists(list_l, list_r)
         if right_order != UNDECIDED:
             break
@@ -62,18 +60,9 @@ contents = contents.rstrip('\n')
 #contents += '[[2]]\n[[6]]'
 packet_list = [eval(line) for line in contents.split('\n')]
 
-for e in packet_list:
-    print(e)
-
-print('  -1: OUT-OF-ORDER,  0: EQUAL,  1: IN-ORDER  ')
-print(f'`check_lists(...)` on e[0] and e[1]: {check_lists(packet_list[0],packet_list[1])}')
-print(f'`check_lists(...)` on e[2] and e[4]: {check_lists(packet_list[2],packet_list[4])}')
-print(f'`check_lists(...)` on e[2] and e[3]: {check_lists(packet_list[2],packet_list[3])}')
-
-print('\nAfter sort:')
+print(packet_list)
 packet_list.sort(key=cmp_to_key(check_lists), reverse=True)
-for e in packet_list:
-    print(e)
+print(packet_list)
 
 import sys
 sys.exit(0)
