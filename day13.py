@@ -39,8 +39,7 @@ def check_lists(l, r):
     return right_order
 
 i_sum = 0
-#with open('input13', 'r') as file:
-with open('fix13', 'r') as file:
+with open('input13', 'r') as file:
     for i in count(1):
         DEBUG(f'== Pair {i} ==')
         left = eval(file.readline().rstrip('\n'))
@@ -55,17 +54,10 @@ with open('fix13', 'r') as file:
     file.seek(0)
     contents = file.read().replace('\n\n', '\n')
 
-# TODO-debug
-contents = contents.rstrip('\n')
-#contents += '[[2]]\n[[6]]'
+contents += '[[2]]\n[[6]]'
 packet_list = [eval(line) for line in contents.split('\n')]
 
-print(packet_list)
 packet_list.sort(key=cmp_to_key(check_lists), reverse=True)
-print(packet_list)
-
-import sys
-sys.exit(0)
 
 packet_div2 = 1 + packet_list.index([[2]])
 packet_div6 = 1 + packet_list.index([[6]])
