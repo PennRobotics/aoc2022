@@ -2,6 +2,7 @@ DEBUG = print if False else lambda *s: None
 
 from itertools import count
 
+# TODO: hardcoded bounds
 MIN_X = 462
 MAX_X = 517
 MAX_Y = 162
@@ -32,7 +33,7 @@ def drop():
                 x += -1; y += 1
         else:
             y += 1
-        if x < 462 or x > 517 or y > 162:  # TODO: hardcoded bounds
+        if x < MIN_X or x > MAX_X or y > MAX_Y:
             return -1
 
 #with open('sample14', 'r') as file:
