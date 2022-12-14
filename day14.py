@@ -1,19 +1,27 @@
 # I'm sure there's a very simple, mathy solution (subtracting areas of triangles under horizontal surfaces)
 # but we'll try the brute force method first and see if it finishes in a reasonable time. The bounds are
 # already known, so the floor will just be plus/minus distance to opening (not infinite).
+# Brute force took about 20 minutes. I realized partway through, I can either solve by hand using the
+# diagram or create a filled triangle and then unfill any triangles that are underneath three rocks:
+#
+#  .#######.
+#  ..+++++#.
+#  ...++++#.
+#  ....+++..
+#  .....+...
+#  .........
+#
+# The + symbol denotes an unreachable area.
 
 from itertools import count
 
-# TODO: hardcoded bounds
-# x (462, 517)
-# y (13, 162)
 MIN_X = 462
 MAX_X = 517
 MAX_Y = 162
 CONTINUE = 0
 FINISHED = -1
 
-rock_set = set((x,164) for x in range(500-165,1+500+165))
+rock_set = set((x,MAX_Y+2) for x in range(500-(MAX_Y+3),1+500+(MAX_Y+3)))
 sand_set = set()
 
 def drop():
@@ -34,10 +42,7 @@ def drop():
                 x += -1; y += 1
         else:
             y += 1
-        if y > MAX_Y + 2:
-            return FINISHED
 
-#with open('sample14', 'r') as file:
 with open('input14', 'r') as file:
     rock_waypoints_list = file.read().rstrip('\n').split('\n')
 for rock_waypoints in rock_waypoints_list:
@@ -53,28 +58,12 @@ for rock_waypoints in rock_waypoints_list:
         elif sy == ey:
             rock_set |= set((x,sy) for x in range(sx,1+ex))
 
-def draw_board(sx,ex,ey):
-    for y in range(0,1+ey):
-        for x in range(sx,1+ex):
-            if set([(x, y)]) & rock_set:
-                c = '#'
-            elif set([(x, y)]) & sand_set:
-                c = 'o'
-            else:
-                c = '.'
-            print(c, end='')
-        print('')
-
-#draw_board(500-170,1+500+170,165)
-
 for n in count(1):
     if drop() == FINISHED:
         break
-    # Expect to get to between 20000 and 26000, probably closer to 26000
+    # Expect to get to between 20000 and 26000, probably closer to 26000 (answer was 25055)
     if n % 100 == 0:
         print(n,flush=True)
-    #if n % 100 == 0:
-    #    draw_board(500-170,1+500+170,165)
 
 
 #print(f'Part A: {len(sand_set)}')
