@@ -38,21 +38,25 @@ def drop():
 
 #with open('sample14', 'r') as file:
 with open('input14', 'r') as file:
-    coords = file.read().rstrip('\n').replace('\n',' -> ').split(' -> ')
-x = []; y = []
-for coord in coords:
-    xs, ys = coord.split(',')
-    x.append(int(xs))
-    y.append(int(ys))
-print((min(x), max(x)))
-print((min(y), max(y)))
+    rock_waypoints_list = file.read().rstrip('\n').split('\n')
+for rock_waypoints in rock_waypoints_list:
+    rock_waypoints = rock_waypoints.split(' -> ')
+    print(rock_waypoints)
+    for i in range(len(rock_waypoints) - 1):
+        print(rock_waypoints[i], rock_waypoints[i+1])
 
-print(sand_set)
-drop(); print(sand_set)
-drop(); print(sand_set)
-drop(); print(sand_set)
-drop(); print(sand_set)
-drop(); print(sand_set)
+    #print(coord)
+    #print(set([tuple(map(lambda cs: int(cs), coord.split(',')))]))
+    #xs, ys = coord.split(',')
+    #x.append(int(xs))
+    #y.append(int(ys))
+
+### print(sand_set)
+### drop(); print(sand_set)
+### drop(); print(sand_set)
+### drop(); print(sand_set)
+### drop(); print(sand_set)
+### drop(); print(sand_set)
 
 print(f'Part A: {0}')
 print(f'Part B: {0}')
