@@ -32,8 +32,8 @@ def drop():
         if x < MIN_X or x > MAX_X or y > MAX_Y:
             return -1
 
-with open('sample14', 'r') as file:
-#with open('input14', 'r') as file:
+#with open('sample14', 'r') as file:
+with open('input14', 'r') as file:
     rock_waypoints_list = file.read().rstrip('\n').split('\n')
 for rock_waypoints in rock_waypoints_list:
     rock_waypoints = rock_waypoints.split(' -> ')
@@ -65,7 +65,7 @@ def draw_board(sx,ex,ey):
             print(c, end='')
         print('')
 
-draw_board(494,503,9)
+draw_board(MIN_X,MAX_X,MAX_Y)
 
 ### print(sand_set)
 ### drop(); print(sand_set)
