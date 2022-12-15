@@ -29,6 +29,15 @@ class Endpoints:
     def __str__(self):
         return f'Top: {self.top}, Left: {self.lef}, Bottom: {self.bot}, Right: {self.rig}'
 
+    def check_point_contained(self, pt):
+        # There's this trick:
+        #   1. Get the area of the top half triangle and bottom half triangle using four endpoints.
+        #   2. Get the area of the four triangles made by connecting each adjacent endpoint pair and candidate point.
+        #   3. If these are equal, the point is contained. Otherwise, the point is outside the region.
+
+        # TODO
+        pass
+
     def _seg_inter(self, seg1, seg2):
         (A,B),(C,D) = seg1, seg2
         if not self.isec(A,B,C,D):
