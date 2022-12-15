@@ -1,3 +1,12 @@
+# For Part B, if there is only one possible beacon position, it
+# is going to be one distance greater than the rejection range
+# of at least one beacon. Hopefully, this will be around the
+# border of multiple rejection regions (or it is one of the
+# corners). I would calculate the intersection(s), if existing,
+# for each "border plus one" line segment, put these into a
+# priority queue, and check if each candidate is inside a
+# rejection region.
+
 manhattan = lambda v1, v2: abs(v2[0]-v1[0]) + abs(v2[1]-v1[1])
 dist_to_2MM = lambda v: abs(v[1]-2000000)
 
@@ -5,8 +14,8 @@ v = ['',] * 10
 x_reject_segs = []
 with open('input15', 'r') as file:
     for line in file:
-        for n, word in enumerate(line.split()):
-            v[n] = ''.join(n for n in word if n in '-0123456789')
+        for i, word in enumerate(line.split()):
+            v[i] = ''.join(n for n in word if n in '-0123456789')
         sx, sy, bx, by = map(int, (v[2], v[3], v[8], v[9]))
         s, b = (sx, sy), (bx, by)
         spread = manhattan(s, b)
