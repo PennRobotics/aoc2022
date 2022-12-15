@@ -6,15 +6,6 @@
 # for each "border plus one" line segment, put these into a
 # priority queue, and check if each candidate is inside a
 # rejection region.
-#
-# There's possibly something wrong with my intersection code.
-# I'll possibly use a third-party library to simplify this.
-# If all of the candidate points are rejected (which the
-# rejection code still needs to be implemented, TODO) then
-# one thought is to include the nine surrounding points for
-# every point, in case there's an off-by-one error somewhere.
-#
-# Once these changes are implemented, the solution should arrive.
 
 manhattan = lambda v1, v2: abs(v2[0]-v1[0]) + abs(v2[1]-v1[1])
 dist_to_2MM = lambda v: abs(v[1]-2000000)
@@ -40,14 +31,16 @@ class Endpoints:
         #   1. Get the area of the existing region (done during class init)
         #   2. Get the area of the four triangles made by connecting each adjacent endpoint pair and candidate point.
         #   3. If these are equal(-ish), the point is contained. Otherwise, the point is outside the region.
-        tri_area = lambda pA, pB, pC: abs((pA[0]*pB[1] + pB[0]*pC[1] + pC[0]*pA[1] - pA[1]*pB[0] - pB[1]*pC[0] - pC[1]*pA[0]) // 2)
-        cand_area = tri_area(self.intop, self.inlef, pt) +\
-                tri_area(self.intop, self.inrig, pt) +\
-                tri_area(self.inbot, self.inrig, pt) +\
-                tri_area(self.inbot, self.inlef, pt)
+        tri_area = lambda A, B, C: abs((A[0]*B[1] + B[0]*C[1] + C[0]*A[1] - A[1]*B[0] - B[1]*C[0] - C[1]*A[0]) // 2)
+
+        cand_area = tri_area(self.intop, self.inlef, pt) + \
+                    tri_area(self.intop, self.inrig, pt) + \
+                    tri_area(self.inbot, self.inrig, pt) + \
+                    tri_area(self.inbot, self.inlef, pt)
+
         return self.area == cand_area
 
-    def _seg_inter(self, seg1, seg2):
+    def _seg_inter(self, seg1, seg2):  # from Stack Overflow
         (p0, p1), (p2, p3) = seg1, seg2
         s10x = p1[0] - p0[0]
         s10y = p1[1] - p0[1]
@@ -65,18 +58,13 @@ class Endpoints:
         s02y = p0[1] - p2[1]
 
         s = s10x * s02y - s10y * s02x
-        if (s < 0) == is_pos:  return None
         t = s32x * s02y - s32y * s02x
-        if (t < 0) == is_pos:  return None
+        if (s < 0)   == is_pos or (t < 0)   == is_pos:  return None
         if (s > den) == is_pos or (t > den) == is_pos:  return None
+
         t /= den
+
         return tuple(map(int, (p0[0] + t*s10x, p0[1] + t*s10y)))
-
-    def ccw(self,A,B,C):
-        return (C[1]-A[1]) * (B[0]-A[0]) > (B[1]-A[1]) * (C[1]-A[1])
-
-    def isec(self,A,B,C,D):
-        return self.ccw(A,C,D) != self.ccw(B,C,D) and self.ccw(A,B,C) != self.ccw(A,B,D)
 
     def intersection(self, other):
         inter_list = []
@@ -98,14 +86,11 @@ class Endpoints:
         if r := self._seg_inter((self.bot, self.rig), (other.bot, other.lef)):  inter_list.append(r)  # LL vs LL
         return inter_list
 
-    def det(self, dx, dy):
-        return dx[0] * dy[1] - dx[1] * dy[0]
-
 
 v = ['',] * 10
 x_reject_segs = []
 endpoints_list = []
-beacon = None
+beacon = (0, 0)
 with open('input15', 'r') as file:
     for line in file:
         for i, word in enumerate(line.split()):
@@ -116,17 +101,19 @@ with open('input15', 'r') as file:
         offset = dist_to_2MM(s)
         endpoints_list.append(Endpoints(s, spread))
         if offset > spread:
-            continue  # Not in range
-        rem = spread - offset  # Remaining x span
+            continue  # not in range
+        rem = spread - offset  # remaining x span
         x_reject_segs.append([s[0] - rem, s[0] + rem])
 
-i_list = []
+i_list = []  # list of intersections
 for i, e0 in enumerate(endpoints_list[:-1]):
     for j, e1 in enumerate(endpoints_list[i+1:], i+1):
         i_list.append(e0.intersection(e1))
+
 flattened = [x for y in i_list for x in y]
 flattened.sort()
-for pt in flattened:
+
+for pt in set(flattened):
     if pt[0] < 0 or pt[1] < 0 or pt[0] > 4000000 or pt[1] > 4000000:
         continue
     if not any([e.check_point_contained(pt) for e in endpoints_list]):
