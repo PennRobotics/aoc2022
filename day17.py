@@ -26,19 +26,34 @@ def draw_board(bk, ht):
 #with open('sample17', 'r') as file:
 with open('input17', 'r') as file:
     jetlist = [1 if jet == '<' else -1 for jet in file.read().rstrip('\n')]
-print(len(jetlist))
 jet = cycle(jetlist)
+jet_mod = 0
 
-rkk = 0
-q = []
+history = dict()
+
 highest_he = 0
-last_b_ans = 0
 for n in count(1):
+    brick_mod = n % 5
     mover = next(brick)
     board = board + [0]*len(mover)
     h = len(board) - len(mover)
     while True:
         #draw_board(mover, h)
+        jet_mod = (jet_mod + 1) % len(jetlist)
+        if (jet_mod, brick_mod) in history:
+            old_h, old_n = history[(jet_mod, brick_mod)]
+            dn = n - old_n
+            if n % dn == 1000000000000 % dn:
+                dh = h - old_h
+                n_remaining = 1000000000000 - n
+                skips = n_remaining // dn
+                print(f'Part B: {skips*dh + h}')
+                # 1500874635588 was too high, other Part B answers were off by a few
+                # 1500874635585 was too low
+                # 1500874635586 was too low. Gee... I wonder what it could be...
+                # (In related news, the brick heights probably have something to do with these slightly-off answers.)
+        else:
+            history[(jet_mod, brick_mod)] = (h, n)
         move = next(jet)
         b_row = board[h:h+len(mover)]
         if move < 0:  # Move right
@@ -60,28 +75,9 @@ for n in count(1):
             highest_he = he if he > highest_he else highest_he
             board = board[:highest_he+3]
             break
-    #if n == 2022:
-    #    print(f'Part A: {highest_he}')
-    if n % 337 == 0:
-        rkk += 1
-        if rkk % 100 == 0:
-            print('.',end='',flush=True)
-        while h > 500:
-            board = board[300:]
-            highest_he -= 300
-            h -= 300
-            last_b_ans -= 300
-        if rkk >= 500 and rkk < 510:
-            q.append(highest_he - last_b_ans)
-        if rkk >= 500 + 10091 and rkk < 510 + 10091:
-            q.append(highest_he - last_b_ans)
-        if rkk >= 500+2*10091 and rkk < 510+2*10091:
-            q.append(highest_he - last_b_ans)
-        if rkk == 510 + 10091 or rkk == 510+2*10091:
-            print(q)
-        #print(highest_he - last_b_ans, end='  ', flush=True)
-        last_b_ans = highest_he
-        #print(f'Part B: {0}')
+    if n == 2022:
+        print(f'Part A: {highest_he}')
     if n == 6000000:
         break
+    #print(f'Part B: {0}')
 
