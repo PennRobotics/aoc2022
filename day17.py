@@ -23,8 +23,8 @@ def draw_board(bk, ht):
     out += '+-------+\n'
     print(out)
 
-with open('sample17', 'r') as file:
-#with open('input17', 'r') as file:
+#with open('sample17', 'r') as file:
+with open('input17', 'r') as file:
     jetlist = [1 if jet == '<' else -1 for jet in file.read().rstrip('\n')]
 jet = cycle(jetlist)
 
