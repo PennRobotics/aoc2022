@@ -1,0 +1,56 @@
+graph {
+  edge [len=5]
+  layout=dot
+
+  AA [ label = "AA\n0" shape = doublecircle ];
+  CN [ label = "CN\n15" ];
+  EV [ label = "EV\n19" ];
+  FB [ label = "FB\n24" ];
+  FX [ label = "FX\n6" ];
+  HB [ label = "HB\n22" ];
+  IS [ label = "IS\n5" ];
+  JO [ label = "JO\n18" ];
+  KP [ label = "KP\n25" ];
+  MW [ label = "MW\n11" ];
+  OH [ label = "OH\n12" ];
+  QD [ label = "QD\n20" ];
+  RD [ label = "RD\n13" ];
+  TB [ label = "TB\n23" ];
+  ZF [ label = "ZF\n7" ];
+  ZP [ label = "ZP\n9" ];
+
+  //subgraph {
+    AA -- FX [ label = "3" ];
+    AA -- IS [ label = "4" ];
+    AA -- MW [ label = "3" ];
+    AA -- ZF [ label = "3" ];
+    AA -- ZP [ label = "3" ];
+  //}
+  CN -- EV [ label = "3" ];
+  CN -- HB [ label = "3" ];
+  CN -- JO [ label = "4" ];
+  EV -- FB [ label = "4" ];
+  EV -- JO [ label = "3" ];
+  EV -- OH [ label = "4" ];
+  FX -- IS [ label = "3" ];
+  FX -- QD [ label = "4" ];
+  FX -- ZF [ label = "3" ];
+  FX -- ZP [ label = "3" ];
+  IS -- MW [ label = "3" ];
+  IS -- ZF [ label = "3" ];
+  IS -- ZP [ label = "3" ];
+  JO -- KP [ label = "4" ];
+  JO -- MW [ label = "3" ];
+  MW -- OH [ label = "4" ];
+  OH -- QD [ label = "4" ];
+  OH -- RD [ label = "4" ];
+  QD -- ZF [ label = "3" ];
+  QD -- ZP [ label = "4" ];
+  RD -- TB [ label = "3" ];
+  ZF -- ZP [ label = "4" ];
+
+  {rank=same; AA; IS}
+  {rank=same; OH; RD; TB}
+  {rank=same; CN; HB}
+  {rank=same; JO; KP}
+}
