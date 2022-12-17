@@ -1,10 +1,11 @@
-# Without much background here, I would plan to get the shortest connection distance
-# between each node. I believe the way to do this is to keep a dictionary of each
-# known connection. When a new connection is added, iterate through the known nodes
-# and update if the new node has a shorter path to existing nodes.
+# By graphing this (using dot/graphviz) three details become clear:
+# 1. There are a lot of valuable nodes living at the end of a long chain, e.g. expensive to reach.
+# 2. Lots of smaller-valued nodes are quickly reachable.
+# 3. All possible paths will probably need to be enumerated (without time-wasting moves, BUT allowing backtracking to reach a new node).
 
-# I think I recall BFS having a minimum path guarantee, so I'd use that after all
-# node connections are made.
+# Less clear is if there will be a way to prune less efficient moves during path creation. I suppose this would be something
+#   like a dictionary of all valued nodes reached by time t (beginning with the current node) where the dict value is lowest score so far.
+# It seems like a lot of work, so I would only do that if the naive/brute force solution doesn't work.
 
 DEBUG = print if True else lambda *s: None
 

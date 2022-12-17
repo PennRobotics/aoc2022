@@ -1,0 +1,123 @@
+graph {
+  AA [ label = "AA\n0" ];
+
+  XG [ label = "XG\n0" ];
+  ZF [ label = "ZF\n7" ];
+  RD [ label = "RD\n13" ];
+  XJ [ label = "XJ\n0" ];
+  CJ [ label = "CJ\n0" ];
+  UA [ label = "UA\n0" ];
+  EQ [ label = "EQ\n0" ];
+  IU [ label = "IU\n0" ];
+  QM [ label = "QM\n0" ];
+  WC [ label = "WC\n0" ];
+  MU [ label = "MU\n0" ];
+  MW [ label = "MW\n11" ];
+  XA [ label = "XA\n0" ];
+  OH [ label = "OH\n12" ];
+  QD [ label = "QD\n20" ];
+  OE [ label = "OE\n0" ];
+  CB [ label = "CB\n0" ];
+  TB [ label = "TB\n23" ];
+  PM [ label = "PM\n0" ];
+  YS [ label = "YS\n0" ];
+  KO [ label = "KO\n0" ];
+  RG [ label = "RG\n0" ];
+  BU [ label = "BU\n0" ];
+  RK [ label = "RK\n0" ];
+  JO [ label = "JO\n18" ];
+  AG [ label = "AG\n0" ];
+  AW [ label = "AW\n0" ];
+  ZP [ label = "ZP\n9" ];
+  KY [ label = "KY\n0" ];
+  EV [ label = "EV\n19" ];
+  FB [ label = "FB\n24" ];
+  DU [ label = "DU\n0" ];
+  NG [ label = "NG\n0" ];
+  HC [ label = "HC\n0" ];
+  SC [ label = "SC\n0" ];
+  HB [ label = "HB\n22" ];
+  VM [ label = "VM\n0" ];
+  LW [ label = "LW\n0" ];
+  SX [ label = "SX\n0" ];
+  FX [ label = "FX\n6" ];
+  JS [ label = "JS\n0" ];
+  BM [ label = "BM\n0" ];
+  FA [ label = "FA\n0" ];
+  RP [ label = "RP\n0" ];
+  NL [ label = "NL\n0" ];
+  CN [ label = "CN\n15" ];
+  BS [ label = "BS\n0" ];
+  KP [ label = "KP\n25" ];
+  YO [ label = "YO\n0" ];
+  CR [ label = "CR\n0" ];
+  BY [ label = "BY\n0" ];
+  IS [ label = "IS\n5" ];
+  VT [ label = "VT\n0" ];
+
+  AA -- AW
+  AA -- BM
+  AA -- CB
+  AA -- MU
+  AA -- PM
+  AG -- IS
+  AG -- MW
+  AW -- BS
+  BM -- MW
+  BS -- IS
+  BU -- EV
+  BU -- OE
+  BY -- QD
+  BY -- ZF
+  CB -- FX
+  CJ -- UA
+  CJ -- ZF
+  CN -- HC
+  CN -- IU
+  CN -- QM
+  CR -- QD
+  CR -- XG
+  DU -- IS
+  DU -- ZP
+  EQ -- RP
+  EQ -- ZP
+  EV -- IU
+  EV -- SX
+  EV -- VT
+  FA -- FX
+  FA -- IS
+  FB -- OE
+  FX -- LW
+  FX -- NG
+  FX -- RK
+  HB -- HC
+  IS -- SC
+  JO -- NL
+  JO -- SX
+  JO -- XA
+  JO -- XJ
+  JS -- RD
+  JS -- WC
+  KO -- OH
+  KO -- VT
+  KP -- YO
+  KY -- QD
+  KY -- RK
+  LW -- ZF
+  MU -- ZP
+  MW -- NL
+  MW -- RG
+  NG -- ZP
+  OH -- WC
+  OH -- XG
+  OH -- YS
+  PM -- ZF
+  QD -- RP
+  QM -- XA
+  RD -- VM
+  RG -- YS
+  SC -- ZF
+  TB -- VM
+  UA -- ZP
+  XJ -- YO
+}
