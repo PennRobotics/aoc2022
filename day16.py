@@ -54,3 +54,5 @@ with open('input16', 'r') as file:
 
 print(f'Part A: {0}')
 print(f'Part B: {0}')
+
+# 1700 too low
