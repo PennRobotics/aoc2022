@@ -3,21 +3,19 @@ DEBUG = print if True else lambda *s: None
 # Input data ranges: x = 1--19, y = 0--19, z = 0--18
 voxels = []
 with open('input18', 'r') as file:
-    cc = 0
+    cc = 0  # TODO-debug
     for line in file:
-        cc += 1  # TODO-debug
+        cc += 1
         x, y, z = map(int, line.rstrip('\n').split(','))
         voxels.append((x,y,z),)
-        if cc == 10:
+        if cc == 6:
             break
 
-DEBUG(voxels)
+sa = 6 * len(voxels)
 
-sort(voxels, key=voxels[0])
+voxels.sort(key=lambda e:e[0])
 DEBUG(voxels)
-
-sort(voxels, key=voxels[1])
-DEBUG(voxels)
+DEBUG(*voxels)
 
 print(f'Part A: {0}')
 print(f'Part B: {0}')
