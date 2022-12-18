@@ -1,4 +1,4 @@
-DEBUG = print if True else lambda *s: None
+DEBUG = print if False else lambda *s: None
 
 UNKNOWN_SPACE = 0
 UNKNOWN_FILLED = 1
@@ -7,7 +7,7 @@ EXTERIOR_FILLED = 4
 INTERIOR_SPACE = 8
 INTERIOR_FILLED = 16
 
-print(\
+DEBUG(\
 'UNKNOWN_SPACE = 0\n' +
 'UNKNOWN_FILLED = 1\n' +
 'EXTERIOR_SPACE = 2\n' +
@@ -20,17 +20,21 @@ from operator import sub
 
 adj = lambda v1, v2: True if sum(map(abs, map(sub, v1, v2))) == 1 else False
 
-def assign_adj_relation_to_voxel(v):
-    if v == (2,2,2):
-        DEBUG('LOOK HERE')  # TODO-debug
+def assign_adj_relation_to_voxel(v, ending=False):
     x, y, z = v[0], v[1], v[2]
-    vtype = voxel_seen(v)
+    vtype = voxel_seen[v]
 
     f = lambda i: [v[i]-1, v[i]+1]
     cx, cy, cz = f(0), f(1), f(2)
 
+    face_remove_count = None if not ending else 0
+
     for ax in cx:
         avtype = voxel_seen[(ax, y, z)]
+        if ending:
+            DEBUG(f'v {vtype}, av {avtype}')
+            face_remove_count += 1 if vtype == UNKNOWN_SPACE and avtype == EXTERIOR_FILLED else 0
+            continue
         if vtype == UNKNOWN_FILLED and (avtype == EXTERIOR_FILLED or avtype == EXTERIOR_SPACE):
             voxel_seen[v] = EXTERIOR_FILLED; return
         if vtype == UNKNOWN_SPACE and avtype == EXTERIOR_SPACE:
@@ -38,6 +42,9 @@ def assign_adj_relation_to_voxel(v):
 
     for ay in cy:
         avtype = voxel_seen[(x, ay, z)]
+        if ending:
+            face_remove_count += 1 if vtype == UNKNOWN_SPACE and avtype == EXTERIOR_FILLED else 0
+            continue
         if vtype == UNKNOWN_FILLED and (avtype == EXTERIOR_FILLED or avtype == EXTERIOR_SPACE):
             voxel_seen[v] = EXTERIOR_FILLED; return
         if vtype == UNKNOWN_SPACE and avtype == EXTERIOR_SPACE:
@@ -45,10 +52,15 @@ def assign_adj_relation_to_voxel(v):
 
     for az in cz:
         avtype = voxel_seen[(x, y, az)]
+        if ending:
+            face_remove_count += 1 if vtype == UNKNOWN_SPACE and avtype == EXTERIOR_FILLED else 0
+            continue
         if vtype == UNKNOWN_FILLED and (avtype == EXTERIOR_FILLED or avtype == EXTERIOR_SPACE):
             voxel_seen[v] = EXTERIOR_FILLED; return
         if vtype == UNKNOWN_SPACE and avtype == EXTERIOR_SPACE:
             voxel_seen[v] = EXTERIOR_SPACE; return
+
+    return face_remove_count
 
 # Input data ranges: x = 1--19, y = 0--19, z = 0--18
 voxels = []
@@ -97,21 +109,21 @@ for u in [min_x, max_x]:
 old_vrc = None
 smallest_range = min(max_x-min_x, max_y-min_y, max_z-min_z)
 while True:
-    for f in range(1, smallest_range//2):  # TODO: minus 1 or not?
+    for f in range(1, 1 + smallest_range//2):  # TODO: minus 1 or not?
         for u in range(min_x+f, 1+max_x-f):
             for v in range(min_y+f, 1+max_x-f):
                 for w in [min_z+f, max_z-f]:
-                    assign_adj_relation_to_voxel(u,v,w)
+                    assign_adj_relation_to_voxel((u,v,w))
 
         for u in range(min_x+f, 1+max_x-f):
             for v in [min_y+f, max_x-f]:
                 for w in range(min_z+f, 1+max_z-f):
-                    assign_adj_relation_to_voxel(u,v,w)
+                    assign_adj_relation_to_voxel((u,v,w))
 
         for u in [min_x+f, max_x-f]:
             for v in range(min_y+f, 1+max_x-f):
                 for w in range(min_z+f, 1+max_z-f):
-                    assign_adj_relation_to_voxel(u,v,w)
+                    assign_adj_relation_to_voxel((u,v,w))
 
     voxel_relation_counts = [sum(map((i).__eq__, voxel_seen.values())) for i in [0,1,2,4,8,16]]
     DEBUG(f'0,1,2,4,8,16: {voxel_relation_counts}')
@@ -120,21 +132,21 @@ while True:
             break
     old_vrc = voxel_relation_counts
 
-    for f in range(smallest_range//2, 1, -1):  # TODO: correct?
+    for f in range(smallest_range//2, 0, -1):  # TODO: correct?
         for u in range(min_x+f, 1+max_x-f):
             for v in range(min_y+f, 1+max_x-f):
                 for w in [min_z+f, max_z-f]:
-                    assign_adj_relation_to_voxel(u,v,w)
+                    assign_adj_relation_to_voxel((u,v,w))
 
         for u in range(min_x+f, 1+max_x-f):
             for v in [min_y+f, max_x-f]:
                 for w in range(min_z+f, 1+max_z-f):
-                    assign_adj_relation_to_voxel(u,v,w)
+                    assign_adj_relation_to_voxel((u,v,w))
 
         for u in [min_x+f, max_x-f]:
             for v in range(min_y+f, 1+max_x-f):
                 for w in range(min_z+f, 1+max_z-f):
-                    assign_adj_relation_to_voxel(u,v,w)
+                    assign_adj_relation_to_voxel((u,v,w))
 
 DEBUG('\n'.join(map(str,list(voxel_seen.items()))))
 
@@ -147,7 +159,7 @@ DEBUG('\n'.join(map(str,list(voxel_seen.items()))))
 #       3. Expand fully and shrink fully ("cycle").
 #       4. If number is unchanged, change all UNKNOWN_SPACE to INTERIOR_SPACE and UNKNOWN_FILLED (if any) to INTERIOR_FILLED.
 #       5. If number changes, cycle again and repeat until number is unchanged.
-# TODO: - Surface area will be subtracted by 2 on each adjacent face where INTERIOR_SPACE touches EXTERIOR_FILLED.
+# TODO: - Surface area will be subtracted by 1 on each adjacent face where INTERIOR_SPACE touches EXTERIOR_FILLED.
 #       - Subtract by 6 for any INTERIOR_FILLED.
 
 sa = 6 * len(voxels)
@@ -176,7 +188,11 @@ for _, group in groupby(voxels, key=lambda e:e[2]):
         for v1, v2 in zip(g2, g2[1:]):
             sa -= 2 if adj(v1, v2) else 0
 
-
+for u in range(min_x+1, max_x):
+    for v in range(min_y+1, max_x):
+        for w in range(min_z+1, max_z):
+            check = (u,v,w)
+            sa -= assign_adj_relation_to_voxel(check, ending=True)
 
 print(f'Part A: {sa}')
 print(f'Part B: {0}')
