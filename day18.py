@@ -3,9 +3,10 @@ DEBUG = print if True else lambda *s: None
 from itertools import groupby
 from operator import sub
 
-adj = lambda v1, v2: sum(map(abs, map(sub, v1, v2)))
+adj = lambda v1, v2: True if sum(map(abs, map(sub, v1, v2))) == 1 else False
 
-DEBUG(adj([0,1,1],[1,0,1]))  # Expect sum([1,1,0]) == 2
+DEBUG(adj([0,1,1],[1,0,1]))  # Expect false
+DEBUG(adj([1,1,1],[1,0,1]))  # Expect true
 
 # Input data ranges: x = 1--19, y = 0--19, z = 0--18
 voxels = []
