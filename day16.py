@@ -50,7 +50,21 @@ with open('input16', 'r') as file:
             valves[valve] = n
         n.add_nodes(tunnel_list)
 
+# TODO: fix this (runs indefinitely)
+def bfs(start):
+    visited = []
+    docket = [start]
+    while docket:
+        nn = docket.pop(0)
+        for tunnel in valves[nn].dist:
+            if tunnel not in visited:
+                visited.append(nn)
+                docket.append(nn)
+
+
 # print('\n'.join([str(valves[v]) for v in valves]))
+
+bfs('AA')
 
 print(f'Part A: {0}')
 print(f'Part B: {0}')
