@@ -50,23 +50,15 @@ with open('input16', 'r') as file:
             valves[valve] = n
         n.add_nodes(tunnel_list)
 
-import sys  # TODO-debug
-# TODO: fix this (runs indefinitely)
 def bfs(start):
-    visited = []
+    visited = [start]
     docket = [start]
-    cc = 0
     while docket:
-        cc += 1
-        if cc > 5:
-            sys.exit(0)
-        DEBUG(docket,visited)
         nn = docket.pop(0)
         for tunnel in valves[nn].dist:
-            DEBUG(f'  {tunnel}')
             if tunnel not in visited:
-                visited.append(nn)
-                docket.append(nn)
+                visited.append(tunnel)
+                docket.append(tunnel)
 
 
 # print('\n'.join([str(valves[v]) for v in valves]))
