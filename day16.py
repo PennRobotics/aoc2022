@@ -50,6 +50,10 @@ with open('input16', 'r') as file:
             valves[valve] = n
         n.add_nodes(tunnel_list)
 
+def fix_dists():
+    # TODO: if flow == 0, link neighbors to each other, add dist to each neighbor, eliminate self (double check that two 0-value nodes create a dist of 3 from each end)
+    pass
+
 def bfs(start):
     visited = [start]
     docket = [start]
@@ -62,6 +66,8 @@ def bfs(start):
 
 
 # print('\n'.join([str(valves[v]) for v in valves]))
+
+fix_dists()
 
 bfs('AA')
 
