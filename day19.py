@@ -27,6 +27,7 @@ for bid, C1o, C2o, C3o, C3c, C4o, C4c in blueprints:
         # max_geode_robots = some sort of triangle number thing, or (absolute most naive) ~21 minus fib number leading to x obsidian
         # max_obsidian_robots = should be able to back out the earliest robot using previous two, enumerate all cases and test individually
 
+        n1, n2, n3, n4 = n1+(job==ORE_ROBOT), n2+(job==CLAY_ROBOT), n3+(job==OBSIDIAN_ROBOT), n4+(job==GEODE_ROBOT)
         state[2] += n1
         state[3] += n2
         state[4] += n3
@@ -40,6 +41,7 @@ for bid, C1o, C2o, C3o, C3c, C4o, C4c in blueprints:
     # TODO: add candidate states for each type of build option (nothing or robot)
     # TODO: check if the candidate state is feasible (can a geode robot be build by 23m?) or even optimal (how many geode robots COULD be built given a set of inputs?)
     # TODO: choose top state, go to next blueprint
+    # TODO: if it's easy to check and time permits, get min and max bounds for ore and clay, figure out if there's a predictable ratio between each type of material, etc.
 
     DEBUG(possible_states)
     DEBUG('\n'.join([', '.join([str(e) for e in v]) for v in possible_states]))
@@ -53,3 +55,34 @@ for bid, C1o, C2o, C3o, C3c, C4o, C4c in blueprints:
 
 print(f'Part A: {0}')
 print(f'Part B: {0}')
+
+# Hand calculation of #2:  (seemingly low-production case)
+'''
+build 2 ore bots, clay almost every turn (6)
+build 10 clay (18)
+obs almost every turn
+basically 1 geode bot, if that, and certainly late
+
+OR
+
+build 1 ore bot, clay every other turn (3)
+build 7 clay (17)
+obs every other turn
+maybe 2 geode bots? maybe even still zero?
+
+1 robot = 2 ore + 16 obsidian = 2 ore + 16*(4 ore + 14 clay) = 64 ore + 224*(4 ore) = 960 ore-equivalent
+
+'''
+
+# Hand calculation of #24:  (seemingly high-production case)
+'''
+build new ore robot, clay robots can be built every turn (3)
+with 5 clay robots, an obs robot can be built every other turn (8)
+a surplus of ore will build (avg 1 per turn)
+in the between turns, one of the others could be built and might help production
+with 4 obs robots, a geode robot should be buildable every 3 turns (16)
+1 geode somewhere between 13 and 15 (
+2 around 17
+3 around 20
+4 around 23 [3+6+9+4 = 22 hopefully, and probably a few more]
+'''
