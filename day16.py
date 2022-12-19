@@ -15,7 +15,7 @@ class Node:
     def __init__(self, id, flow = -1):
         DEBUG(f'Valve {id} created with flow {flow}')
         self.id = id
-        self.flow = flow
+        self.flow = int(flow)
         self.dist = dict()
         pass
 
@@ -23,7 +23,7 @@ class Node:
         return f'Valve {self.id}, {self.flow} flow rate, {" + ".join([k for k, v in self.dist.items() if v == 1])}'
 
     def set_flow(self, flow):
-        self.flow = flow
+        self.flow = int(flow)
 
     def add_nodes(self, nodes):
         for n in nodes:
@@ -33,6 +33,31 @@ class Node:
                 valves[n] = nn
                 nn.add_nodes([self.id])
             self.dist[n] = 1
+
+
+def fix_dists():
+    useless_valves = [v.id for v in valves.values() if v.flow == 0]
+    useless_valves.remove('AA')
+    for uv_name in useless_valves:
+        uv = valves[uv_name]
+        uv_dist = sum(uv.dist.values())
+        n1, n2 = uv.dist.keys()
+        valves[n1].dist[n2] = uv_dist
+        valves[n2].dist[n1] = uv_dist
+        valves[n1].dist.pop(uv_name)
+        valves[n2].dist.pop(uv_name)
+        valves.pop(uv_name)
+
+def bfs(start):
+    visited = [(start, 0)]
+    docket = [(start, 0)]
+    while docket:
+        nn, cd = docket.pop(0)  # Next node, cumulative distance
+        for tunnel, d in valves[nn].dist.items():
+            if tunnel not in map(lambda x:x[0], visited):
+                visited.append((tunnel, cd + d))
+                docket.append((tunnel, cd + d))
+    DEBUG(f'BFS history: {visited}')
 
 
 valves = dict()
@@ -50,26 +75,14 @@ with open('input16', 'r') as file:
             valves[valve] = n
         n.add_nodes(tunnel_list)
 
-def fix_dists():
-    # TODO: if flow == 0, link neighbors to each other, add dist to each neighbor, eliminate self (double check that two 0-value nodes create a dist of 3 from each end)
-    pass
-
-def bfs(start):
-    visited = [start]
-    docket = [start]
-    while docket:
-        nn = docket.pop(0)
-        for tunnel in valves[nn].dist:
-            if tunnel not in visited:
-                visited.append(tunnel)
-                docket.append(tunnel)
-
-
-# print('\n'.join([str(valves[v]) for v in valves]))
-
+DEBUG('\nNode trimming / fix distance costs')
+DEBUG([(k, v.dist) for k, v in valves.items()])
 fix_dists()
+DEBUG('---')
+DEBUG([(k, v.dist) for k, v in valves.items()])
 
 bfs('AA')
+bfs('RD')
 
 print(f'Part A: {0}')
 print(f'Part B: {0}')
