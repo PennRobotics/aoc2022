@@ -1,7 +1,6 @@
 DEBUG = print if True else lambda *s: None
 
 import re
-from copy import deepcopy
 
 NOTHING        = 0
 ORE_ROBOT      = 1
@@ -9,67 +8,84 @@ CLAY_ROBOT     = 2
 OBSIDIAN_ROBOT = 4
 GEODE_ROBOT    = 8
 
-MINUTE = 1
+MAX_MINUTE = 6  # TODO
 
-#with open('sample19', 'r') as file:
-with open('input19', 'r') as file:
+with open('sample19', 'r') as file:
+#with open('input19', 'r') as file:
     blueprints = [map(int, re.findall(r'\d+', l)) for l in file.read().rstrip('\n').split('\n')]
 
-best_score = 0
-possible_states = []
-for bid, C1o, C2o, C3o, C3c, C4o, C4x in blueprints:
-    job, no, nc, nx, ng, n1, n2, n3, n4 = NOTHING, 0, 0, 0, 0, 1, 0, 0, 0
-    state = [0, job, no, nc, nx, ng, n1, n2, n3, n4]
-    possible_states.append(deepcopy(state))
-    del state
-    for mn in range(1, 5+1):
-        print(mn,flush=True)
+blueprints = [blueprints[0]]  # TODO-debug
+
+quality_level = 0
+for bid, cost_o_r1, cost_o_r2, cost_o_r3, cost_c_r3, cost_o_r4, cost_x_r4 in blueprints:
+    job, num_o, num_c, num_x, num_g, num_r1, num_r2, num_r3, num_r4 = NOTHING, 0, 0, 0, 0, 1, 0, 0, 0
+    possible_states = [[0, job, num_o, num_c, num_x, num_g, num_r1, num_r2, num_r3, num_r4]]
+    for minute in range(1, MAX_MINUTE+1):
+        DEBUG(f'== Minute {minute} ==', flush=True)
+
         # max_ore_robots = 1 + first_criteria + second_criteria + third_criteria (saturated, divide remaining minutes by num of robots)
         # max_clay_robots = first_criteria + second_criteria + ... (worst case is eleven for blueprint 24, saturation here is 10)
         # max_geode_robots = some sort of triangle number thing, or (absolute most naive) ~21 minus fib number leading to x obsidian
         # max_obsidian_robots = should be able to back out the earliest robot using previous two, enumerate all cases and test individually
 
-        #for i, state in enumerate(possible_states):
-        #    if state[0] < mn - 2:
-        #        continue
-        #    possible_states = possible_states[i:]
+        for i, state in enumerate(possible_states):
+            if state[0] < minute - 1:
+                continue
+            possible_states = possible_states[i:]
 
-        current_state_len = len(possible_states)
-        for i in range(current_state_len):
-            state = deepcopy(possible_states[i])
+        new_states = []
+        for state in possible_states:
+            _, job, num_o, num_c, num_x, num_g, num_r1, num_r2, num_r3, num_r4 = state
+            state[0] = minute
 
-            job, no, nc, nx, ng, n1, n2, n3, n4 = state[1:10]
+            make_r = 0
+            if False:  # TODO
+                0
+            elif job == CLAY_ROBOT and num_o >= cost_o_r2:
+                DEBUG(f'Spend {cost_o_r2} ore to start building a clay-collecting robot.')
+                num_o -= cost_o_r2
+                state[2] -= cost_o_r2
+                make_r = 2
+            elif job == OBSIDIAN_ROBOT:  # TODO
+                0
 
-            #DEBUG('+', state)
+            state[2] += num_r1
+            state[3] += num_r2
+            state[4] += num_r3
+            state[5] += num_r4
 
-            state[0] += MINUTE
+            DEBUG(f'{num_r1} ore-collecting robot{"s" if num_r1 > 1 else ""} collect{"s" if num_r1 == 1 else ""} {num_r1} ore; you now have {state[2]} ore.')
+            if num_r2:
+                DEBUG(f'{num_r2} clay-collecting robot{"s" if num_r2 > 1 else ""} collect{"s" if num_r2 == 1 else ""} {num_r2} clay; you now have {state[3]} clay.')
+            if num_r3:
+                DEBUG(f'{num_r3} obsidian-collecting robot{"s" if num_r3 > 1 else ""} collect{"s" if num_r3 == 1 else ""} {num_r3} obsidian; you now have {state[4]} obsidian.')
+            if num_r4:
+                s, ns = 's', '' if num_r4 > 1 else '', 's'
+                sss = 's' if state[4] > 1 else ''
+                DEBUG(f'{num_r4} geode-cracking robot{s} crack{ns} {num_r4} geode{s}; you now have {state[4]} open geode{sss}.')
 
-            state[2] += n1
-            state[3] += n2
-            state[4] += n3
-            state[5] += n4
+            ### state[5:9] = num_r1+(job==ORE_ROBOT), num_r2+(job==CLAY_ROBOT), num_r3+(job==OBSIDIAN_ROBOT), num_r4+(job==GEODE_ROBOT)
 
-            state[5:9] = n1+(job==ORE_ROBOT), n2+(job==CLAY_ROBOT), n3+(job==OBSIDIAN_ROBOT), n4+(job==GEODE_ROBOT)
-
-            #DEBUG('+', state)
-            if nx >= C4x and no >= C4o:
+            if num_x >= cost_x_r4 and num_o >= cost_o_r4:
                 state[1] = GEODE_ROBOT  # Greedy creation of geodes
-            elif nc >= C3c and no >= C3o and n3 < C4x:
+            elif num_c >= cost_c_r3 and num_o >= cost_o_r3 and num_r3 < cost_x_r4:
                 state[1] = OBSIDIAN_ROBOT  # Greedy creation of obsidian
             else:
                 state[1] = NOTHING
-            candidate_state = deepcopy(state)
-            possible_states.append(candidate_state)
+            new_states.append(state)
 
-            if n1 < max(C1o, C2o, C3o, C4o):  # Saturation (cannot create more than one bot per turn for any material)
+            if num_r1 < max(cost_o_r1, cost_o_r2, cost_o_r3, cost_o_r4):  # Saturation (cannot create more than one bot per turn for any material)
                 state[1] = ORE_ROBOT
-                candidate_state = deepcopy(state)
-                possible_states.append(candidate_state)
+                new_states.append(state)
 
-            if n2 < C3c:  # Saturation
+            if num_r2 < cost_c_r3:  # Saturation
                 state[1] = CLAY_ROBOT
-                candidate_state = deepcopy(state)
-                possible_states.append(candidate_state)
+                new_states.append(state)
+
+            if make_r:
+                state[make_r + 5] += 1
+                r_type = 'ore-collecting' if make_r == 1 else 'clay-collecting' if make_r == 2 else 'obsidian-collecting' if make_r == 3 else 'geode-cracking'
+                DEBUG(f'The new {r_type} robot is ready; you now have {state[make_r + 5]} of them.')
 
     # TODO: add candidate states for each type of build option (nothing or robot)
     # TODO: check if the candidate state is feasible (can a geode robot be build by 23m?) or even optimal (how many geode robots COULD be built given a set of inputs?)
@@ -84,6 +100,8 @@ for bid, C1o, C2o, C3o, C3c, C4o, C4x in blueprints:
                 #score = 0
                 #best_state = state if score > best_score else best_state
                 #best_score = score if score > best_score else best_score
+        DEBUG('')
+        DEBUG(f' + {possible_states}')
 
 print(f'Part A: {0}')
 print(f'Part B: {0}')
