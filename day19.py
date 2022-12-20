@@ -24,11 +24,6 @@ for bid, cost_o_r1, cost_o_r2, cost_o_r3, cost_c_r3, cost_o_r4, cost_x_r4 in blu
     for minute in range(1, MAX_MINUTE+1):
         DEBUG(f'== Minute {minute} ==', flush=True)
 
-        # max_ore_robots = 1 + first_criteria + second_criteria + third_criteria (saturated, divide remaining minutes by num of robots)
-        # max_clay_robots = first_criteria + second_criteria + ... (worst case is eleven for blueprint 24, saturation here is 10)
-        # max_geode_robots = some sort of triangle number thing, or (absolute most naive) ~21 minus fib number leading to x obsidian
-        # max_obsidian_robots = should be able to back out the earliest robot using previous two, enumerate all cases and test individually
-
         for i, st in enumerate(possible_states):
             DEBUG('> ',i,st)
             if st[0] < minute - 1:
@@ -120,7 +115,6 @@ for bid, cost_o_r1, cost_o_r2, cost_o_r3, cost_c_r3, cost_o_r4, cost_x_r4 in blu
                 new_state[10] = path + [NOTHING]
             new_states.append(new_state)
 
-    # TODO: add candidate states for each type of build option (nothing or robot)
     # TODO: check if the candidate state is feasible (can a geode robot be build by 23m?) or even optimal (how many geode robots COULD be built given a set of inputs?)
     # TODO: choose top state, go to next blueprint
     # TODO: if it's easy to check and time permits, get min and max bounds for ore and clay, figure out if there's a predictable ratio between each type of material, etc.
@@ -139,39 +133,3 @@ for bid, cost_o_r1, cost_o_r2, cost_o_r3, cost_c_r3, cost_o_r4, cost_x_r4 in blu
 
 print(f'Part A: {0}')
 print(f'Part B: {0}')
-
-# Hand calculation of #2:  (seemingly low-production case)
-'''
-build 2 ore bots, clay almost every turn (6)
-build 10 clay (18)
-obs almost every turn
-basically 1 geode bot, if that, and certainly late
-
-OR
-
-build 1 ore bot, clay every other turn (3)
-build 7 clay (17)
-obs every other turn
-maybe 2 geode bots? maybe even still zero?
-
-1 robot = 2 ore + 16 obsidian = 2 ore + 16*(4 ore + 14 clay) = 64 ore + 224*(4 ore) = 960 ore-equivalent
-
-16 obsidian is 1+1+2+2+3+3+4 (obs every other turn), obs 1+2+3+4+4 clay,
-
-Trying again:
-after 4, 2b. After 6, 3b. After 8, 4b., After 12, 4c. After 13, 1x, @14,5c,@15,6c,@17,7c/2x,@19,3x,@22 maybe a geode bot
-
-'''
-
-# Hand calculation of #24:  (seemingly high-production case)
-'''
-build new ore robot, clay robots can be built every turn (3)
-with 5 clay robots, an obs robot can be built every other turn (8)
-a surplus of ore will build (avg 1 per turn)
-in the between turns, one of the others could be built and might help production
-with 4 obs robots, a geode robot should be buildable every 3 turns (16)
-1 geode somewhere between 13 and 15 (
-2 around 17
-3 around 20
-4 around 23 [3+6+9+4 = 22 hopefully, and probably a few more]
-'''
