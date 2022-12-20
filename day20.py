@@ -1,17 +1,25 @@
 DEBUG = print if True else lambda *s: None
 
 class Node:
-    def __init__(self, val, pr=None, nx=None, head=False):
+    def __init__(self, val, head=False):
         global global_head
         self.val = val
-        self.pr = pr
-        self.nx = nx
-        if not head:
-            self.head = global_head
-        else:
+        self.pr = None
+        self.nx = None
+        if head:
             global_head = self
+        self.head = global_head
+
+    def rerefer_chain_to_head(self):  # Call after assigning global_head.pr but before closing the circle
+        global global_head
+        redo_node = self
+        while redo_node.pr != None:
+            redo_node.head = global_head
+            redo_node = redo_node.pr
 
     def jump_by_n(self, n):
+        if n == 0:
+            return
         travel_node = self
         if n > 0:
             for _ in range(n):
@@ -64,17 +72,16 @@ for v in values[1:]:
     last_n.redefine_next_as(nv)
     docket.append(nv)
     last_n = nv
+global_head.rerefer_chain_to_head()
 last_n.redefine_next_as(first_n)
 
 print_node_segment(2, 8)
 
-first_n.jump_by_n(1)
-first_n.pr.jump_by_n(2)
-
-print_node_segment(2, 8)
-
-#for mvmt in docket:
-#    mvmt.jump_by_n(mvmt.val)
+for i, mvmt in enumerate(docket):
+    DEBUG(type(mvmt.head))
+    DEBUG(i)
+    mvmt.jump_by_n(mvmt.val)
+    print_node_segment(2, 8)
 
 
 
