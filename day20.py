@@ -13,9 +13,10 @@ class Node:
     def rerefer_chain_to_head(self):  # Call after assigning global_head.pr but before closing the circle
         global global_head
         redo_node = self
+        redo_node.head = global_head
         while redo_node.pr != None:
-            redo_node.head = global_head
             redo_node = redo_node.pr
+            redo_node.head = global_head
 
     def jump_by_n(self, n):
         if n == 0:
@@ -81,7 +82,10 @@ for i, mvmt in enumerate(docket):
     DEBUG(type(mvmt.head))
     DEBUG(i)
     mvmt.jump_by_n(mvmt.val)
-    print_node_segment(2, 8)
+    if i < 2:
+        print_node_segment(2, 8)
+    else:
+        print_node_segment(3, 9)
 
 
 
