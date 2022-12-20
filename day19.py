@@ -9,7 +9,7 @@ CLAY_ROBOT     = 2
 OBSIDIAN_ROBOT = 4
 GEODE_ROBOT    = 8
 
-MAX_MINUTE = 6  # TODO
+MAX_MINUTE = 24  # TODO
 
 with open('sample19', 'r') as file:
 #with open('input19', 'r') as file:
@@ -38,19 +38,36 @@ for bid, cost_o_r1, cost_o_r2, cost_o_r3, cost_c_r3, cost_o_r4, cost_x_r4 in blu
         new_states = []
         for ostate in sorted(possible_states):
             state = copy(ostate)
-            _, job, num_o, num_c, num_x, num_g, num_r1, num_r2, num_r3, num_r4, path = state
+            _, job, num_o, num_c, num_x, num_g, num_r1, num_r2, num_r3, num_r4, opath = state
+            path = copy(opath)
             state[0] = minute
 
             make_r = 0
-            if False:  # TODO
-                0
+            DEBUG(job == ORE_ROBOT)
+            if job == ORE_ROBOT and num_o >= cost_o_r1:
+                DEBUG(f'Spend {cost_o_r1} ore to start building an ore-collecting robot.')
+                num_o -= cost_o_r1
+                state[2] -= cost_o_r1
+                make_r = 1
             elif job == CLAY_ROBOT and num_o >= cost_o_r2:
                 DEBUG(f'Spend {cost_o_r2} ore to start building a clay-collecting robot.')
                 num_o -= cost_o_r2
                 state[2] -= cost_o_r2
                 make_r = 2
-            elif job == OBSIDIAN_ROBOT:  # TODO
-                0
+            elif job == OBSIDIAN_ROBOT and num_o >= cost_o_r3 and num_c >= cost_c_r3:
+                DEBUG(f'Spend {cost_o_r3} ore and {cost_c_r3} clay to start building an obsidian-collecting robot.')
+                num_o -= cost_o_r3
+                state[2] -= cost_o_r3
+                num_c -= cost_c_r3
+                state[3] -= cost_c_r3
+                make_r = 3
+            elif job == GEODE_ROBOT and num_o >= cost_o_r4 and num_x >= cost_x_r4:
+                DEBUG(f'Spend {cost_o_r4} ore and {cost_x_r4} obsidian to start building a geode-cracking robot.')
+                num_o -= cost_o_r4
+                state[2] -= cost_o_r4
+                num_x -= cost_x_r4
+                state[4] -= cost_x_r4
+                make_r = 4
 
             state[2] += num_r1
             state[3] += num_r2
@@ -63,7 +80,7 @@ for bid, cost_o_r1, cost_o_r2, cost_o_r3, cost_c_r3, cost_o_r4, cost_x_r4 in blu
             if num_r3:
                 DEBUG(f'{num_r3} obsidian-collecting robot{"s" if num_r3 > 1 else ""} collect{"s" if num_r3 == 1 else ""} {num_r3} obsidian; you now have {state[4]} obsidian.')
             if num_r4:
-                s, ns = 's', '' if num_r4 > 1 else '', 's'
+                s, ns = ('s', '') if num_r4 > 1 else ('', 's')
                 sss = 's' if state[4] > 1 else ''
                 DEBUG(f'{num_r4} geode-cracking robot{s} crack{ns} {num_r4} geode{s}; you now have {state[4]} open geode{sss}.')
 
@@ -72,26 +89,35 @@ for bid, cost_o_r1, cost_o_r2, cost_o_r3, cost_c_r3, cost_o_r4, cost_x_r4 in blu
                 r_type = 'ore-collecting' if make_r == 1 else 'clay-collecting' if make_r == 2 else 'obsidian-collecting' if make_r == 3 else 'geode-cracking'
                 DEBUG(f'The new {r_type} robot is ready; you now have {state[make_r + 5]} of them.')
 
-            if num_o >= cost_o_r1 and num_r1 < max(cost_o_r1, cost_o_r2, cost_o_r3, cost_o_r4):  # Saturation (cannot create more than one bot per turn for any material)
-                new_state = copy(state)
-                new_state[1] = ORE_ROBOT
-                new_state[10].append(ORE_ROBOT)
-                new_states.append(new_state)
+            if cost_o_r1 > cost_o_r2:
+                DEBUG('!!')
+                if num_o >= cost_o_r1 and num_r1 < max(cost_o_r1, cost_o_r2, cost_o_r3, cost_o_r4):  # Saturation (cannot create more than one bot per turn for any material)
+                    DEBUG('??')
+                    new_state = copy(state)
+                    new_state[1] = ORE_ROBOT
+                    new_state[10] = path + [ORE_ROBOT]
+                    new_states.append(new_state)
             if num_o >= cost_o_r2 and num_r2 < cost_c_r3:  # Saturation
                 new_state = copy(state)
                 new_state[1] = CLAY_ROBOT
-                new_state[10].append(CLAY_ROBOT)
+                new_state[10] = path + [CLAY_ROBOT]
                 new_states.append(new_state)
+            if cost_o_r1 <= cost_o_r2:
+                if num_o >= cost_o_r1 and num_r1 < max(cost_o_r1, cost_o_r2, cost_o_r3, cost_o_r4):  # Saturation (cannot create more than one bot per turn for any material)
+                    new_state = copy(state)
+                    new_state[1] = ORE_ROBOT
+                    new_state[10] = path + [ORE_ROBOT]
+                    new_states.append(new_state)
             new_state = copy(state)
             if num_x >= cost_x_r4 and num_o >= cost_o_r4:
                 new_state[1] = GEODE_ROBOT  # Greedy creation of geodes
-                new_state[10].append(GEODE_ROBOT)
+                new_state[10] = path + [GEODE_ROBOT]
             elif num_c >= cost_c_r3 and num_o >= cost_o_r3 and num_r3 < cost_x_r4:
                 new_state[1] = OBSIDIAN_ROBOT  # Greedy creation of obsidian
-                new_state[10].append(OBSIDIAN_ROBOT)
+                new_state[10] = path + [OBSIDIAN_ROBOT]
             else:
                 new_state[1] = NOTHING
-                new_state[10].append(NOTHING)
+                new_state[10] = path + [NOTHING]
             new_states.append(new_state)
 
     # TODO: add candidate states for each type of build option (nothing or robot)
