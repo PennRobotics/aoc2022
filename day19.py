@@ -1,4 +1,4 @@
-DEBUG = print if False else lambda *s: None
+DEBUG = print if True else lambda *s: None
 
 import re
 from copy import copy
@@ -9,7 +9,7 @@ CLAY_ROBOT     = 2
 OBSIDIAN_ROBOT = 4
 GEODE_ROBOT    = 8
 
-MAX_MINUTE = 24  # TODO
+MAX_MINUTE = 5  # TODO
 
 with open('sample19', 'r') as file:
 #with open('input19', 'r') as file:
@@ -22,8 +22,8 @@ for bid, cost_o_r1, cost_o_r2, cost_o_r3, cost_c_r3, cost_o_r4, cost_x_r4 in blu
     job, num_o, num_c, num_x, num_g, num_r1, num_r2, num_r3, num_r4, path = NOTHING, 0, 0, 0, 0, 1, 0, 0, 0, []
     possible_states = [[0, job, num_o, num_c, num_x, num_g, num_r1, num_r2, num_r3, num_r4, path]]
     for minute in range(1, MAX_MINUTE+1):
-        print(minute,flush=True)
-        #DEBUG(f'== Minute {minute} ==', flush=True)
+        print(len(possible_states),minute,flush=True)
+        DEBUG(f'== Minute {minute} ==', flush=True)
 
         for i, st in enumerate(possible_states):
             DEBUG('> ', i, st)
@@ -32,7 +32,7 @@ for bid, cost_o_r1, cost_o_r2, cost_o_r3, cost_c_r3, cost_o_r4, cost_x_r4 in blu
             del possible_states[:i]
 
         new_states = []
-        for ostate in sorted(possible_states):
+        for ostate in possible_states:
             state = copy(ostate)
             _, job, num_o, num_c, num_x, num_g, num_r1, num_r2, num_r3, num_r4, opath = state
             path = copy(opath)
@@ -138,6 +138,8 @@ for bid, cost_o_r1, cost_o_r2, cost_o_r3, cost_c_r3, cost_o_r4, cost_x_r4 in blu
         DEBUG('')
         possible_states += new_states
         DEBUG(f' ... {possible_states}')
+    print(possible_states)
+    print('  <>  '.join(list(map(lambda f:str(f[5]), possible_states))))
 
 print(f'Part A: {0}')
 print(f'Part B: {0}')
