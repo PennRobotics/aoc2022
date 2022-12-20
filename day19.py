@@ -1,4 +1,4 @@
-DEBUG = print if True else lambda *s: None
+DEBUG = print if False else lambda *s: None
 
 import re
 from copy import copy
@@ -22,11 +22,12 @@ for bid, cost_o_r1, cost_o_r2, cost_o_r3, cost_c_r3, cost_o_r4, cost_x_r4 in blu
     job, num_o, num_c, num_x, num_g, num_r1, num_r2, num_r3, num_r4, path = NOTHING, 0, 0, 0, 0, 1, 0, 0, 0, []
     possible_states = [[0, job, num_o, num_c, num_x, num_g, num_r1, num_r2, num_r3, num_r4, path]]
     for minute in range(1, MAX_MINUTE+1):
-        DEBUG(f'== Minute {minute} ==', flush=True)
+        print(minute,flush=True)
+        #DEBUG(f'== Minute {minute} ==', flush=True)
 
         for i, st in enumerate(possible_states):
-            DEBUG('> ',i,st)
-            if st[0] < minute - 1:
+            DEBUG('> ', i, st)
+            if st[0] < minute:
                 continue
             del possible_states[:i]
 
@@ -91,29 +92,36 @@ for bid, cost_o_r1, cost_o_r2, cost_o_r3, cost_c_r3, cost_o_r4, cost_x_r4 in blu
                     new_state = copy(state)
                     new_state[1] = ORE_ROBOT
                     new_state[10] = path + [ORE_ROBOT]
-                    new_states.append(new_state)
+                    if new_state not in possible_states:
+                        new_states.append(new_state)
             if num_o >= cost_o_r2 and num_r2 < cost_c_r3:  # Saturation
                 new_state = copy(state)
                 new_state[1] = CLAY_ROBOT
                 new_state[10] = path + [CLAY_ROBOT]
-                new_states.append(new_state)
+                if new_state not in possible_states:
+                    new_states.append(new_state)
             if cost_o_r1 <= cost_o_r2:
                 if num_o >= cost_o_r1 and num_r1 < max(cost_o_r1, cost_o_r2, cost_o_r3, cost_o_r4):  # Saturation (cannot create more than one bot per turn for any material)
                     new_state = copy(state)
                     new_state[1] = ORE_ROBOT
                     new_state[10] = path + [ORE_ROBOT]
+                    if new_state not in possible_states:
+                        new_states.append(new_state)
+            if num_c >= cost_c_r3 and num_o >= cost_o_r3 and num_r3 < cost_x_r4:
+                new_state = copy(state)
+                new_state[1] = OBSIDIAN_ROBOT  # Greedy-ish creation of obsidian
+                new_state[10] = path + [OBSIDIAN_ROBOT]
+                if new_state not in possible_states:
                     new_states.append(new_state)
             new_state = copy(state)
             if num_x >= cost_x_r4 and num_o >= cost_o_r4:
                 new_state[1] = GEODE_ROBOT  # Greedy creation of geodes
                 new_state[10] = path + [GEODE_ROBOT]
-            elif num_c >= cost_c_r3 and num_o >= cost_o_r3 and num_r3 < cost_x_r4:
-                new_state[1] = OBSIDIAN_ROBOT  # Greedy creation of obsidian
-                new_state[10] = path + [OBSIDIAN_ROBOT]
             else:
                 new_state[1] = NOTHING
                 new_state[10] = path + [NOTHING]
-            new_states.append(new_state)
+            if new_state not in possible_states:
+                new_states.append(new_state)
 
     # TODO: check if the candidate state is feasible (can a geode robot be build by 23m?) or even optimal (how many geode robots COULD be built given a set of inputs?)
     # TODO: choose top state, go to next blueprint
