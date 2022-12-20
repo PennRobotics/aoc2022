@@ -26,7 +26,7 @@ class Node:
             for _ in range(n):
                 travel_node = travel_node.nx
         if n < 0:
-            for _ in range(-n):
+            for _ in range(-n+1):
                 travel_node = travel_node.pr
         move_node = self._pop_node()
         travel_node._insert_node_after(move_node)
@@ -62,7 +62,6 @@ def print_node_segment(i, j):
 with open('sample20', 'r') as file:
 #with open('input20', 'r') as file:
     values = [int(n) for n in file.read().rstrip('\n').split('\n')]
-print(values)
 
 global_head = None
 first_n = Node(values[0])
@@ -79,13 +78,14 @@ last_n.redefine_next_as(first_n)
 print_node_segment(2, 8)
 
 for i, mvmt in enumerate(docket):
-    DEBUG(type(mvmt.head))
     DEBUG(i)
     mvmt.jump_by_n(mvmt.val)
-    if i < 2:
-        print_node_segment(2, 8)
-    else:
+    if i == 3 or i == 6:
         print_node_segment(3, 9)
+    elif i == 4 or i == 5:
+        print_node_segment(4, 10)
+    else:
+        print_node_segment(2, 8)
 
 
 
