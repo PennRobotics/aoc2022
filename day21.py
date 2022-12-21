@@ -1,3 +1,12 @@
+class VariablePool:
+    def assign(self, var_name, value):
+        setattr(self, var_name, value)
+
+varpool = VariablePool()
+
+varpool.assign("test", 42)
+print(varpool.test)
+
 dependencies = {}
 eval_string = {}
 known = {}
