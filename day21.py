@@ -1,16 +1,14 @@
 class VariablePool:
-    def assign(self, var_name, value):
-        setattr(self, var_name, value)
+    def assign(self, var_name, eval_str):
+        mod_eval_str = 'self.' + eval_str[0:7] + 'self.' + eval_str[7:]
+        setattr(self, var_name, eval(mod_eval_str))
 
 varpool = VariablePool()
-
-varpool.assign("test", 42)
-print(varpool.test)
 
 dependencies = {}
 eval_string = {}
 known = {}
-with open('sample21', 'r') as file:
+with open('input21', 'r') as file:
     for line in file:
         if any([e in line for e in '+-*/']):
             waiter, waitee_a, waitee_b = line[0:4], line[6:10], line[13:17]
@@ -18,13 +16,29 @@ with open('sample21', 'r') as file:
             dependencies[waitee_b] = (waitee_a, waiter)
             eval_string[waiter] = line[6:].rstrip('\n')
         else:
-            known[line[0:4]] = eval(line[6:])
-
-print(eval_string)
-print(dependencies)
-print(known)
+            key = line[0:4]
+            val = eval(line[6:])
+            known[key] = val
+            setattr(varpool, key, val)
 
 # TODO: while True: search dependencies keys for known, then check if first value is also in dependencies as a key. If yes, run second value's eval string, add to known
 
-print(f'Part A: {0}')
+while dependencies:
+    dep_list = list(dependencies.items())
+    deleted = []
+    for dep, (other_dep, assign_var) in dep_list:
+        if dep not in known or other_dep not in known or assign_var in deleted:
+            continue
+
+        varpool.assign(assign_var, eval_string[assign_var])
+        known[assign_var] = getattr(varpool, assign_var)
+
+        del dependencies[dep]
+        del dependencies[other_dep]
+        del eval_string[assign_var]
+        deleted.append(assign_var)
+
+root = int(getattr(varpool, "root"))
+
+print(f'Part A: {root}')
 print(f'Part B: {0}')
