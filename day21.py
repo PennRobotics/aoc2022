@@ -21,8 +21,6 @@ with open('input21', 'r') as file:
             known[key] = val
             setattr(varpool, key, val)
 
-# TODO: while True: search dependencies keys for known, then check if first value is also in dependencies as a key. If yes, run second value's eval string, add to known
-
 while dependencies:
     dep_list = list(dependencies.items())
     deleted = []
