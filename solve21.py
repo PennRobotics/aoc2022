@@ -1,13 +1,3 @@
-hsdh = 7
-bbjp = 6
-hzcm = 6
-gmvl = 24
-vbrz = 22
-jlzn = 12
-tsgb = 9
-jdlg = 11
-hsrv = 18
-gtcp = 21
 fwbj = 29
 gnpm = 22
 lgnw = 23
@@ -1505,1559 +1495,410 @@ fdcp = 147
 wqmj = 9
 zbmg = 20
 dsmb = 22
+blzm = 58
+hvpf = 32
+gtfl = 36
+bhvv = 31
+wvbj = 22
+rpft = 53
+jdlq = 72
+fbfn = 29
+qdts = 28
+wldz = 559
+gczn = 31
+gmrv = 33
+cqfb = 94
+rmbj = 38
+dmfq = 57
+dhnj = 38
+qqpg = 56
+bjpl = 74
+lnqf = 19
+jhnd = 54
+csbl = 152
+pnwf = 138
+cjfp = 265
+dztf = 403
+brgq = 111
+lqvh = 47
+ncvc = 28
+wpnj = 331
+qddh = 114
+hrgp = 43
+fvgb = 6
+tcnm = 68
+mnlt = 269
+cbmp = 71
+slvn = 116
+qcwm = 284
+mfpr = 39
+mwgd = 59
+hgmq = 418
+zmch = 163
+sjss = 1266
+tpcs = 100
+mrbg = 154
+wjmb = 20
+qtfg = 61
+jmzc = 35
+ldqd = 425
+gshv = 63
+vwcj = 94
+qrrh = 398
+pgzq = 93
+nmgd = 67
+gqfn = 83
+nzvz = 23
+pglm = 58
+qtlz = 127
+lhhj = 17
+rjsc = 97
+nrvp = 43
+zsvz = 265
+rzjr = 25
+srdb = 17
+htsg = 72
+psrn = 22
+nssm = 11
+zwnb = 103
+rvvd = 189
+tzsb = 649
+wtmf = 26
+pdjn = 61
+wrtc = 22
+ljzq = 53
+wmbw = 7
+fqjt = 53
+nfqr = 113
+brlb = 131
+hqpn = 21
+hjdc = 40
+rcvp = 313
+nqjh = 86
+csgq = 181
+nzdr = 179
+flwq = 293
+czrq = 101
+rcqs = 651
+pgmj = 512
+rtlg = 70
+lttq = 67
+vbzb = 515
+jjtt = 372
+fvgc = 82
+fbtr = 254
+dldp = 211
+lzbz = 89
+jjcv = 21
+snmg = 1592
+ztdm = 358
+rjwn = 168
+wbnb = 638
+wcbb = 437
+nqmw = 29
+qmss = 67
+dcwb = 58
+hdrq = 10
+fwsm = 62
+wvrp = 704
+lnhw = 538
+nhms = 85
+mjfv = 191
+hpff = 69
+hvfn = 377
+rznq = 178
+fqvj = 23
+wwbc = 22
+ndfp = 191
+sgrh = 439
+bmpq = 267
+pwtd = 183
+npvz = 81
+trnq = 112
+qfbs = 955
+gzwz = 27
+vhgv = 72
+cmqp = 214
+lfwd = 44
+hsdh = 7
+bbjp = 6
+hzcm = 6
+gmvl = 24
+vbrz = 22
+jlzn = 12
+tsgb = 9
+jdlg = 11
+hsrv = 18
+gtcp = 21
 
-try:
-    blzm = tffz *  wfct; print(f'blzm = {blzm}')
-except:
-    print('blzm = tffz *  wfct')
-try:
-    hvpf = tdmn +  qtqw; print(f'hvpf = {hvpf}')
-except:
-    print('hvpf = tdmn +  qtqw')
-try:
-    lflj = gsjg *  bqcr; print(f'lflj = {lflj}')
-except:
-    print('lflj = gsjg *  bqcr')
-try:
-    rbzb = fbtr // hrpw; print(f'rbzb = {rbzb}')
-except:
-    print('rbzb = fbtr // hrpw')
-try:
-    wjvt = dhnj // hjbh; print(f'wjvt = {wjvt}')
-except:
-    print('wjvt = dhnj // hjbh')
-try:
-    csqw = dsfr +  crqs; print(f'csqw = {csqw}')
-except:
-    print('csqw = dsfr +  crqs')
-try:
-    rlrl = lcgp *  gfgz; print(f'rlrl = {rlrl}')
-except:
-    print('rlrl = lcgp *  gfgz')
-try:
-    gtfl = nncb // lvtt; print(f'gtfl = {gtfl}')
-except:
-    print('gtfl = nncb // lvtt')
-try:
-    tntq = qcwm +  lvhd; print(f'tntq = {tntq}')
-except:
-    print('tntq = qcwm +  lvhd')
-try:
-    stqg = crwf +  rjwn; print(f'stqg = {stqg}')
-except:
-    print('stqg = crwf +  rjwn')
-try:
-    tqzg = spzp *  nwnm; print(f'tqzg = {tqzg}')
-except:
-    print('tqzg = spzp *  nwnm')
-try:
-    bhvv = hzlz +  blsf; print(f'bhvv = {bhvv}')
-except:
-    print('bhvv = hzlz +  blsf')
-try:
-    wvbj = bgvw *  lzjd; print(f'wvbj = {wvbj}')
-except:
-    print('wvbj = bgvw *  lzjd')
-try:
-    hshw = rcpq +  jjcv; print(f'hshw = {hshw}')
-except:
-    print('hshw = rcpq +  jjcv')
-try:
-    cljz = ljzq *  zwds; print(f'cljz = {cljz}')
-except:
-    print('cljz = ljzq *  zwds')
-try:
-    rbft = mrqd +  lbfw; print(f'rbft = {rbft}')
-except:
-    print('rbft = mrqd +  lbfw')
-try:
-    rpft = hplb +  htmr; print(f'rpft = {rpft}')
-except:
-    print('rpft = hplb +  htmr')
-try:
-    mfzt = glsl -  qtfz; print(f'mfzt = {mfzt}')
-except:
-    print('mfzt = glsl -  qtfz')
-try:
-    fhdg = zgdt *  jtbb; print(f'fhdg = {fhdg}')
-except:
-    print('fhdg = zgdt *  jtbb')
-try:
-    vpbf = tpcs -  ncvc; print(f'vpbf = {vpbf}')
-except:
-    print('vpbf = tpcs -  ncvc')
-try:
-    cbpz = wjvt -  thdz; print(f'cbpz = {cbpz}')
-except:
-    print('cbpz = wjvt -  thdz')
-try:
-    jdlq = mftb *  tdtw; print(f'jdlq = {jdlq}')
-except:
-    print('jdlq = mftb *  tdtw')
-try:
-    fbfn = fgdc -  zrlp; print(f'fbfn = {fbfn}')
-except:
-    print('fbfn = fgdc -  zrlp')
-try:
-    qnhs = dbrp // qfgw; print(f'qnhs = {qnhs}')
-except:
-    print('qnhs = dbrp // qfgw')
-try:
-    gpwh = chdn +  dbws; print(f'gpwh = {gpwh}')
-except:
-    print('gpwh = chdn +  dbws')
-try:
-    qdts = bhsf +  fqjm; print(f'qdts = {qdts}')
-except:
-    print('qdts = bhsf +  fqjm')
-try:
-    wldz = lgnc *  qfmb; print(f'wldz = {wldz}')
-except:
-    print('wldz = lgnc *  qfmb')
-try:
-    gczn = dsdh +  vfds; print(f'gczn = {gczn}')
-except:
-    print('gczn = dsdh +  vfds')
-try:
-    wcfl = lbtn +  stgz; print(f'wcfl = {wcfl}')
-except:
-    print('wcfl = lbtn +  stgz')
-try:
-    mrqd = wcfl *  bwtd; print(f'mrqd = {mrqd}')
-except:
-    print('mrqd = wcfl *  bwtd')
-try:
-    fwsh = nfch -  mtbf; print(f'fwsh = {fwsh}')
-except:
-    print('fwsh = nfch -  mtbf')
-try:
-    mdds = bvbh -  qqpg; print(f'mdds = {mdds}')
-except:
-    print('mdds = bvbh -  qqpg')
-try:
-    gmrv = qnvv +  qmbv; print(f'gmrv = {gmrv}')
-except:
-    print('gmrv = qnvv +  qmbv')
-try:
-    dbrp = gvhw *  rjsc; print(f'dbrp = {dbrp}')
-except:
-    print('dbrp = gvhw *  rjsc')
-try:
-    tlmm = dppd // cdjz; print(f'tlmm = {tlmm}')
-except:
-    print('tlmm = dppd // cdjz')
-try:
-    cqfb = qgrr +  rljc; print(f'cqfb = {cqfb}')
-except:
-    print('cqfb = qgrr +  rljc')
-try:
-    tnvm = zwnb *  lhsp; print(f'tnvm = {tnvm}')
-except:
-    print('tnvm = zwnb *  lhsp')
-try:
-    rmbj = wbvh +  sggv; print(f'rmbj = {rmbj}')
-except:
-    print('rmbj = wbvh +  sggv')
-try:
-    fjtj = lnhw +  nhms; print(f'fjtj = {fjtj}')
-except:
-    print('fjtj = lnhw +  nhms')
-try:
-    pnsb = fqww +  lpcl; print(f'pnsb = {pnsb}')
-except:
-    print('pnsb = fqww +  lpcl')
-try:
-    fmgp = fwsh *  wcqd; print(f'fmgp = {fmgp}')
-except:
-    print('fmgp = fwsh *  wcqd')
-try:
-    dmfq = rbtr *  rhnb; print(f'dmfq = {dmfq}')
-except:
-    print('dmfq = rbtr *  rhnb')
-try:
-    sjth = psbp +  humn; print(f'sjth = {sjth}')
-except:
-    print('sjth = psbp +  humn')
-try:
-    brhd = hgmq *  pmqh; print(f'brhd = {brhd}')
-except:
-    print('brhd = hgmq *  pmqh')
-try:
-    tpzr = rbcr // svzn; print(f'tpzr = {tpzr}')
-except:
-    print('tpzr = rbcr // svzn')
-try:
-    nfgs = ppph +  psrn; print(f'nfgs = {nfgs}')
-except:
-    print('nfgs = ppph +  psrn')
-try:
-    vltz = nzvz *  rwlz; print(f'vltz = {vltz}')
-except:
-    print('vltz = nzvz *  rwlz')
-try:
-    lvhd = czrq *  fzrw; print(f'lvhd = {lvhd}')
-except:
-    print('lvhd = czrq *  fzrw')
-try:
-    wqln = mhbq -  tfgm; print(f'wqln = {wqln}')
-except:
-    print('wqln = mhbq -  tfgm')
-try:
-    lnsr = tlrt +  dpdg; print(f'lnsr = {lnsr}')
-except:
-    print('lnsr = tlrt +  dpdg')
-try:
-    csbd = rwls *  fwgr; print(f'csbd = {csbd}')
-except:
-    print('csbd = rwls *  fwgr')
-try:
-    ftrp = rlwt *  bqqf; print(f'ftrp = {ftrp}')
-except:
-    print('ftrp = rlwt *  bqqf')
-try:
-    fvzl = zmch *  fwnz; print(f'fvzl = {fvzl}')
-except:
-    print('fvzl = zmch *  fwnz')
-try:
-    rdcg = tzsb +  jqvb; print(f'rdcg = {rdcg}')
-except:
-    print('rdcg = tzsb +  jqvb')
-try:
-    dhnj = mcsb +  flvt; print(f'dhnj = {dhnj}')
-except:
-    print('dhnj = mcsb +  flvt')
-try:
-    qqpg = zspw *  qdts; print(f'qqpg = {qqpg}')
-except:
-    print('qqpg = zspw *  qdts')
-try:
-    pgpf = lfnz +  mrzd; print(f'pgpf = {pgpf}')
-except:
-    print('pgpf = lfnz +  mrzd')
-try:
-    tvvw = jvnn *  snsr; print(f'tvvw = {tvvw}')
-except:
-    print('tvvw = jvnn *  snsr')
-try:
-    hrlr = cssz -  grbq; print(f'hrlr = {hrlr}')
-except:
-    print('hrlr = cssz -  grbq')
-try:
-    bjpl = gmtv *  wgdl; print(f'bjpl = {bjpl}')
-except:
-    print('bjpl = gmtv *  wgdl')
-try:
-    scjm = hfjb +  twcj; print(f'scjm = {scjm}')
-except:
-    print('scjm = hfjb +  twcj')
-try:
-    hmlz = mlss -  npth; print(f'hmlz = {hmlz}')
-except:
-    print('hmlz = mlss -  npth')
-try:
-    mhbq = qsjv *  vqmw; print(f'mhbq = {mhbq}')
-except:
-    print('mhbq = qsjv *  vqmw')
-try:
-    pfjc = gqrf *  brhd; print(f'pfjc = {pfjc}')
-except:
-    print('pfjc = gqrf *  brhd')
-try:
-    vhcb = zqnd +  wlhj; print(f'vhcb = {vhcb}')
-except:
-    print('vhcb = zqnd +  wlhj')
-try:
-    jncw = njdw -  lvqr; print(f'jncw = {jncw}')
-except:
-    print('jncw = njdw -  lvqr')
-try:
-    lnqf = rjhw // nljm; print(f'lnqf = {lnqf}')
-except:
-    print('lnqf = rjhw // nljm')
-try:
-    jhnd = bmtf *  nllw; print(f'jhnd = {jhnd}')
-except:
-    print('jhnd = bmtf *  nllw')
-try:
-    csbl = qjhb +  lphl; print(f'csbl = {csbl}')
-except:
-    print('csbl = qjhb +  lphl')
-try:
-    qbqw = gtnb +  gpwh; print(f'qbqw = {qbqw}')
-except:
-    print('qbqw = gtnb +  gpwh')
-try:
-    pnwf = pvjh +  vdcn; print(f'pnwf = {pnwf}')
-except:
-    print('pnwf = pvjh +  vdcn')
-try:
-    gtjs = drlj +  vlth; print(f'gtjs = {gtjs}')
-except:
-    print('gtjs = drlj +  vlth')
-try:
-    pmqh = rmjd *  csjf; print(f'pmqh = {pmqh}')
-except:
-    print('pmqh = rmjd *  csjf')
-try:
-    rhqf = qdvp +  wrtc; print(f'rhqf = {rhqf}')
-except:
-    print('rhqf = qdvp +  wrtc')
-try:
-    dsvc = ppwr -  rsgs; print(f'dsvc = {dsvc}')
-except:
-    print('dsvc = ppwr -  rsgs')
-try:
-    wrdt = mjpr *  wbsd; print(f'wrdt = {wrdt}')
-except:
-    print('wrdt = mjpr *  wbsd')
-try:
-    tbct = dvqf -  rzth; print(f'tbct = {tbct}')
-except:
-    print('tbct = dvqf -  rzth')
-try:
-    dbws = pjjt +  zbql; print(f'dbws = {dbws}')
-except:
-    print('dbws = pjjt +  zbql')
-try:
-    znth = lvws *  pzgs; print(f'znth = {znth}')
-except:
-    print('znth = lvws *  pzgs')
-try:
-    cjjt = fhhn -  fpsz; print(f'cjjt = {cjjt}')
-except:
-    print('cjjt = fhhn -  fpsz')
-try:
-    fmrd = vpbf +  zsvz; print(f'fmrd = {fmrd}')
-except:
-    print('fmrd = vpbf +  zsvz')
-try:
-    cjfp = snqv *  drgc; print(f'cjfp = {cjfp}')
-except:
-    print('cjfp = snqv *  drgc')
-try:
-    nfpq = vqhs // hlcz; print(f'nfpq = {nfpq}')
-except:
-    print('nfpq = vqhs // hlcz')
-try:
-    cmgj = pqvc *  lczt; print(f'cmgj = {cmgj}')
-except:
-    print('cmgj = pqvc *  lczt')
-try:
-    rvls = zqnb // ncvp; print(f'rvls = {rvls}')
-except:
-    print('rvls = zqnb // ncvp')
-try:
-    dztf = lvqg *  bbtv; print(f'dztf = {dztf}')
-except:
-    print('dztf = lvqg *  bbtv')
-try:
-    brgq = dmfq +  mmtl; print(f'brgq = {brgq}')
-except:
-    print('brgq = dmfq +  mmtl')
-try:
-    lqvh = hsgt +  twwc; print(f'lqvh = {lqvh}')
-except:
-    print('lqvh = hsgt +  twwc')
-try:
-    ncvc = rtzz *  wmfh; print(f'ncvc = {ncvc}')
-except:
-    print('ncvc = rtzz *  wmfh')
-try:
-    wpnj = crcm +  lhpz; print(f'wpnj = {wpnj}')
-except:
-    print('wpnj = crcm +  lhpz')
-try:
-    fjrr = lvgb +  ggsq; print(f'fjrr = {fjrr}')
-except:
-    print('fjrr = lvgb +  ggsq')
-try:
-    qddh = jdlq +  qbgj; print(f'qddh = {qddh}')
-except:
-    print('qddh = jdlq +  qbgj')
-try:
-    ltdb = rmps +  chwm; print(f'ltdb = {ltdb}')
-except:
-    print('ltdb = rmps +  chwm')
-try:
-    hrgp = jsrw -  phcm; print(f'hrgp = {hrgp}')
-except:
-    print('hrgp = jsrw -  phcm')
-try:
-    ztlm = fmgp +  vrwd; print(f'ztlm = {ztlm}')
-except:
-    print('ztlm = fmgp +  vrwd')
-try:
-    fvgb = mlfw -  qdvm; print(f'fvgb = {fvgb}')
-except:
-    print('fvgb = mlfw -  qdvm')
-try:
-    dvqf = nmbm *  rbft; print(f'dvqf = {dvqf}')
-except:
-    print('dvqf = nmbm *  rbft')
-try:
-    jzsc = mwlt +  rrcv; print(f'jzsc = {jzsc}')
-except:
-    print('jzsc = mwlt +  rrcv')
-try:
-    tcnm = htqq *  mczd; print(f'tcnm = {tcnm}')
-except:
-    print('tcnm = htqq *  mczd')
-try:
-    dqtf = swrm *  ltfp; print(f'dqtf = {dqtf}')
-except:
-    print('dqtf = swrm *  ltfp')
-try:
-    nwzv = pmlc -  wpnj; print(f'nwzv = {nwzv}')
-except:
-    print('nwzv = pmlc -  wpnj')
-try:
-    rddw = jjrt +  scjm; print(f'rddw = {rddw}')
-except:
-    print('rddw = jjrt +  scjm')
-try:
-    mnlt = wctt +  fgvp; print(f'mnlt = {mnlt}')
-except:
-    print('mnlt = wctt +  fgvp')
-try:
-    cbmp = cpjq -  drzq; print(f'cbmp = {cbmp}')
-except:
-    print('cbmp = cpjq -  drzq')
-try:
-    mszn = mscd +  dztf; print(f'mszn = {mszn}')
-except:
-    print('mszn = mscd +  dztf')
-try:
-    slvn = cqfb +  qjvt; print(f'slvn = {slvn}')
-except:
-    print('slvn = cqfb +  qjvt')
-try:
-    qcwm = cbmp *  dltw; print(f'qcwm = {qcwm}')
-except:
-    print('qcwm = cbmp *  dltw')
-try:
-    dqdh = wmbw +  hjdc; print(f'dqdh = {dqdh}')
-except:
-    print('dqdh = wmbw +  hjdc')
-try:
-    ppph = bplt +  hnwz; print(f'ppph = {ppph}')
-except:
-    print('ppph = bplt +  hnwz')
-try:
-    hvvj = mttd +  wqln; print(f'hvvj = {hvvj}')
-except:
-    print('hvvj = mttd +  wqln')
-try:
-    rrcv = fjtj *  bcgn; print(f'rrcv = {rrcv}')
-except:
-    print('rrcv = fjtj *  bcgn')
-try:
-    mdvl = qtdh *  gtjs; print(f'mdvl = {mdvl}')
-except:
-    print('mdvl = qtdh *  gtjs')
-try:
-    mfpr = cngq // nzfs; print(f'mfpr = {mfpr}')
-except:
-    print('mfpr = cngq // nzfs')
-try:
-    qnmc = mnqj *  ctcg; print(f'qnmc = {qnmc}')
-except:
-    print('qnmc = mnqj *  ctcg')
-try:
-    gzgs = rsjz +  hqpn; print(f'gzgs = {gzgs}')
-except:
-    print('gzgs = rsjz +  hqpn')
-try:
-    mwgd = gmrv +  vrgz; print(f'mwgd = {mwgd}')
-except:
-    print('mwgd = gmrv +  vrgz')
-try:
-    qmdq = rbzb +  mqtz; print(f'qmdq = {qmdq}')
-except:
-    print('qmdq = rbzb +  mqtz')
-try:
-    hgmq = tvbj *  lnqf; print(f'hgmq = {hgmq}')
-except:
-    print('hgmq = tvbj *  lnqf')
-try:
-    rsgs = hlhd +  vcsv; print(f'rsgs = {rsgs}')
-except:
-    print('rsgs = hlhd +  vcsv')
-try:
-    hjjd = dqtf +  cpnl; print(f'hjjd = {hjjd}')
-except:
-    print('hjjd = dqtf +  cpnl')
-try:
-    bmjj = jjtt +  mjfv; print(f'bmjj = {bmjj}')
-except:
-    print('bmjj = jjtt +  mjfv')
-try:
-    zmch = csbl +  qbjb; print(f'zmch = {zmch}')
-except:
-    print('zmch = csbl +  qbjb')
-try:
-    sjss = fmhp *  gmrf; print(f'sjss = {sjss}')
-except:
-    print('sjss = fmhp *  gmrf')
-try:
-    tpcs = slcc +  chdb; print(f'tpcs = {tpcs}')
-except:
-    print('tpcs = slcc +  chdb')
-try:
-    mrbg = mmgt *  vnnn; print(f'mrbg = {mrbg}')
-except:
-    print('mrbg = mmgt *  vnnn')
-try:
-    tfgm = fmcr +  vrgf; print(f'tfgm = {tfgm}')
-except:
-    print('tfgm = fmcr +  vrgf')
-try:
-    httb = pbwl *  nmgd; print(f'httb = {httb}')
-except:
-    print('httb = pbwl *  nmgd')
-try:
-    hfjb = dfhm +  npvz; print(f'hfjb = {hfjb}')
-except:
-    print('hfjb = dfhm +  npvz')
-try:
-    lbfw = gpgw *  nmhm; print(f'lbfw = {lbfw}')
-except:
-    print('lbfw = gpgw *  nmhm')
-try:
-    qnjm = qfbs +  qnmc; print(f'qnjm = {qnjm}')
-except:
-    print('qnjm = qfbs +  qnmc')
-try:
-    vqmw = hdwn +  hcsc; print(f'vqmw = {vqmw}')
-except:
-    print('vqmw = hdwn +  hcsc')
-try:
-    cbsc = vtzj +  tjtp; print(f'cbsc = {cbsc}')
-except:
-    print('cbsc = vtzj +  tjtp')
-try:
-    wjmb = jcwf // lrbl; print(f'wjmb = {wjmb}')
-except:
-    print('wjmb = jcwf // lrbl')
-try:
-    qtfg = hrgp +  mtgb; print(f'qtfg = {qtfg}')
-except:
-    print('qtfg = hrgp +  mtgb')
-try:
-    bjts = fwsm +  bgqn; print(f'bjts = {bjts}')
-except:
-    print('bjts = fwsm +  bgqn')
-try:
-    qlcw = fvgc +  zpjj; print(f'qlcw = {qlcw}')
-except:
-    print('qlcw = fvgc +  zpjj')
-try:
-    nwlg = pgns +  vgjv; print(f'nwlg = {nwlg}')
-except:
-    print('nwlg = pgns +  vgjv')
-try:
-    cggv = zmtj *  qmdq; print(f'cggv = {cggv}')
-except:
-    print('cggv = zmtj *  qmdq')
-try:
-    jmzc = mptm +  hzzh; print(f'jmzc = {jmzc}')
-except:
-    print('jmzc = mptm +  hzzh')
-try:
-    ctcg = ftrp -  rznq; print(f'ctcg = {ctcg}')
-except:
-    print('ctcg = ftrp -  rznq')
-try:
-    sqcd = vccr +  dcgr; print(f'sqcd = {sqcd}')
-except:
-    print('sqcd = vccr +  dcgr')
-try:
-    ldqd = qmzp +  pjqb; print(f'ldqd = {ldqd}')
-except:
-    print('ldqd = qmzp +  pjqb')
-try:
-    gshv = cnnh *  ljdh; print(f'gshv = {gshv}')
-except:
-    print('gshv = cnnh *  ljdh')
-try:
-    vwcj = lqvh *  hndc; print(f'vwcj = {vwcj}')
-except:
-    print('vwcj = lqvh *  hndc')
-try:
-    dfnr = gffh +  sfvb; print(f'dfnr = {dfnr}')
-except:
-    print('dfnr = gffh +  sfvb')
-try:
-    qrrh = hlfr +  gslz; print(f'qrrh = {qrrh}')
-except:
-    print('qrrh = hlfr +  gslz')
-try:
-    bqhh = jbsb *  jjfm; print(f'bqhh = {bqhh}')
-except:
-    print('bqhh = jbsb *  jjfm')
-try:
-    fhhn = pgph // rsth; print(f'fhhn = {fhhn}')
-except:
-    print('fhhn = pgph // rsth')
-try:
-    zbbb = nfmd *  rwbb; print(f'zbbb = {zbbb}')
-except:
-    print('zbbb = nfmd *  rwbb')
-try:
-    bqqf = sfht -  rgts; print(f'bqqf = {bqqf}')
-except:
-    print('bqqf = sfht -  rgts')
-try:
-    flzc = vhcb +  wwjb; print(f'flzc = {flzc}')
-except:
-    print('flzc = vhcb +  wwjb')
-try:
-    grcr = dldp +  dsvc; print(f'grcr = {grcr}')
-except:
-    print('grcr = dldp +  dsvc')
-try:
-    cnlb = pdjn *  vhpg; print(f'cnlb = {cnlb}')
-except:
-    print('cnlb = pdjn *  vhpg')
-try:
-    lfnz = prpc +  bmpq; print(f'lfnz = {lfnz}')
-except:
-    print('lfnz = prpc +  bmpq')
-try:
-    mpbh = pnsb +  mszn; print(f'mpbh = {mpbh}')
-except:
-    print('mpbh = pnsb +  mszn')
-try:
-    zgdt = nfgs +  rzjr; print(f'zgdt = {zgdt}')
-except:
-    print('zgdt = nfgs +  rzjr')
-try:
-    wwjb = tntq *  jzsc; print(f'wwjb = {wwjb}')
-except:
-    print('wwjb = tntq *  jzsc')
-try:
-    jffr = brlb -  vpjf; print(f'jffr = {jffr}')
-except:
-    print('jffr = brlb -  vpjf')
-try:
-    pgzq = szzf *  qbrp; print(f'pgzq = {pgzq}')
-except:
-    print('pgzq = szzf *  qbrp')
-try:
-    mlss = ztlm // dzmb; print(f'mlss = {mlss}')
-except:
-    print('mlss = ztlm // dzmb')
-try:
-    rmps = pglm +  jrgp; print(f'rmps = {rmps}')
-except:
-    print('rmps = pglm +  jrgp')
-try:
-    gqrf = twqg *  tqzg; print(f'gqrf = {gqrf}')
-except:
-    print('gqrf = twqg *  tqzg')
-try:
-    nmgd = tmtt +  mfpr; print(f'nmgd = {nmgd}')
-except:
-    print('nmgd = tmtt +  mfpr')
-try:
-    dcgr = ndbd +  zqjm; print(f'dcgr = {dcgr}')
-except:
-    print('dcgr = ndbd +  zqjm')
-try:
-    hcsc = rtqd +  wbnb; print(f'hcsc = {hcsc}')
-except:
-    print('hcsc = rtqd +  wbnb')
-try:
-    swpt = lsrt +  fhdg; print(f'swpt = {swpt}')
-except:
-    print('swpt = lsrt +  fhdg')
-try:
-    vzhs = ltdb -  gqfn; print(f'vzhs = {vzhs}')
-except:
-    print('vzhs = ltdb -  gqfn')
-try:
-    jjrt = nfsb +  nhlc; print(f'jjrt = {jjrt}')
-except:
-    print('jjrt = nfsb +  nhlc')
-try:
-    jbsb = hmbf *  zwvp; print(f'jbsb = {jbsb}')
-except:
-    print('jbsb = hmbf *  zwvp')
-try:
-    lctf = wldz +  cjjt; print(f'lctf = {lctf}')
-except:
-    print('lctf = wldz +  cjjt')
-try:
-    gtnb = pgmj // pzlz; print(f'gtnb = {gtnb}')
-except:
-    print('gtnb = pgmj // pzlz')
-try:
-    mwlt = ttnp *  bcrw; print(f'mwlt = {mwlt}')
-except:
-    print('mwlt = ttnp *  bcrw')
-try:
-    dsfr = qmss +  hlnd; print(f'dsfr = {dsfr}')
-except:
-    print('dsfr = qmss +  hlnd')
-try:
-    ggnm = sltj -  tjwg; print(f'ggnm = {ggnm}')
-except:
-    print('ggnm = sltj -  tjwg')
-try:
-    mscd = cgvn -  zsdz; print(f'mscd = {mscd}')
-except:
-    print('mscd = cgvn -  zsdz')
-try:
-    gqfn = tcbp +  vqtp; print(f'gqfn = {gqfn}')
-except:
-    print('gqfn = tcbp +  vqtp')
-try:
-    nzvz = hvpf -  bqsf; print(f'nzvz = {nzvz}')
-except:
-    print('nzvz = hvpf -  bqsf')
-try:
-    jtpb = rlrl *  fdbl; print(f'jtpb = {jtpb}')
-except:
-    print('jtpb = rlrl *  fdbl')
-try:
-    fwgr = mdvl +  rpjs; print(f'fwgr = {fwgr}')
-except:
-    print('fwgr = mdvl +  rpjs')
-try:
-    pglm = nvlq *  nqlj; print(f'pglm = {pglm}')
-except:
-    print('pglm = nvlq *  nqlj')
-try:
-    nfsb = jcfb -  vthl; print(f'nfsb = {nfsb}')
-except:
-    print('nfsb = jcfb -  vthl')
-try:
-    qtlz = lqln +  lrmr; print(f'qtlz = {qtlz}')
-except:
-    print('qtlz = lqln +  lrmr')
-try:
-    vbtp = zpsz *  qlcw; print(f'vbtp = {vbtp}')
-except:
-    print('vbtp = zpsz *  qlcw')
-try:
-    hqqj = trzg *  nssm; print(f'hqqj = {hqqj}')
-except:
-    print('hqqj = trzg *  nssm')
-try:
-    lhhj = smhj // dbjc; print(f'lhhj = {lhhj}')
-except:
-    print('lhhj = smhj // dbjc')
-try:
-    ngvh = mrbg +  fjrr; print(f'ngvh = {ngvh}')
-except:
-    print('ngvh = mrbg +  fjrr')
-try:
-    hlhd = srdb *  qbzc; print(f'hlhd = {hlhd}')
-except:
-    print('hlhd = srdb *  qbzc')
-try:
-    mqgc = phwr // dftp; print(f'mqgc = {mqgc}')
-except:
-    print('mqgc = phwr // dftp')
-try:
-    lttc = fhdf *  mblz; print(f'lttc = {lttc}')
-except:
-    print('lttc = fhdf *  mblz')
-try:
-    rwbb = plgz +  fmrd; print(f'rwbb = {rwbb}')
-except:
-    print('rwbb = plgz +  fmrd')
-try:
-    rjsc = htgn +  dhnw; print(f'rjsc = {rjsc}')
-except:
-    print('rjsc = htgn +  dhnw')
-try:
-    hcsd = fvzl *  flzc; print(f'hcsd = {hcsd}')
-except:
-    print('hcsd = fvzl *  flzc')
-try:
-    fwnz = bvfj *  gnjf; print(f'fwnz = {fwnz}')
-except:
-    print('fwnz = bvfj *  gnjf')
-try:
-    nrvp = bhvv +  rrrv; print(f'nrvp = {nrvp}')
-except:
-    print('nrvp = bhvv +  rrrv')
-try:
-    zsvz = wbnr *  rpft; print(f'zsvz = {zsvz}')
-except:
-    print('zsvz = wbnr *  rpft')
-try:
-    lczt = vblr +  cbpz; print(f'lczt = {lczt}')
-except:
-    print('lczt = vblr +  cbpz')
-try:
-    rzjr = dqbc +  wjmb; print(f'rzjr = {rzjr}')
-except:
-    print('rzjr = dqbc +  wjmb')
-try:
-    pmlc = mfzt // cvwh; print(f'pmlc = {pmlc}')
-except:
-    print('pmlc = mfzt // cvwh')
-try:
-    srdb = dhvm -  pvnw; print(f'srdb = {srdb}')
-except:
-    print('srdb = dhvm -  pvnw')
-try:
-    htsg = dlbn -  cwml; print(f'htsg = {htsg}')
-except:
-    print('htsg = dlbn -  cwml')
-try:
-    jqvb = nnfg *  tsbw; print(f'jqvb = {jqvb}')
-except:
-    print('jqvb = nnfg *  tsbw')
-try:
-    psrn = mhhv *  rbql; print(f'psrn = {psrn}')
-except:
-    print('psrn = mhhv *  rbql')
-try:
-    gnjf = httb +  grcr; print(f'gnjf = {gnjf}')
-except:
-    print('gnjf = httb +  grcr')
-try:
-    csjf = sjss +  wmjh; print(f'csjf = {csjf}')
-except:
-    print('csjf = sjss +  wmjh')
-try:
-    nssm = wmps +  zgzn; print(f'nssm = {nssm}')
-except:
-    print('nssm = wmps +  zgzn')
-try:
-    qprd = gzhg -  tqsh; print(f'qprd = {qprd}')
-except:
-    print('qprd = gzhg -  tqsh')
-try:
-    fgpf = fmhl // shpn; print(f'fgpf = {fgpf}')
-except:
-    print('fgpf = fmhl // shpn')
-try:
-    sltj = cbsc *  mprw; print(f'sltj = {sltj}')
-except:
-    print('sltj = cbsc *  mprw')
-try:
-    tlwh = qnjm // wjrw; print(f'tlwh = {tlwh}')
-except:
-    print('tlwh = qnjm // wjrw')
-try:
-    bmgz = hmlz // vrnr; print(f'bmgz = {bmgz}')
-except:
-    print('bmgz = hmlz // vrnr')
-try:
-    jmch = wcbb +  bzlq; print(f'jmch = {jmch}')
-except:
-    print('jmch = wcbb +  bzlq')
-try:
-    nrwh = rdcg // zcfq; print(f'nrwh = {nrwh}')
-except:
-    print('nrwh = rdcg // zcfq')
-try:
-    zwnb = bjpl +  zlfn; print(f'zwnb = {zwnb}')
-except:
-    print('zwnb = bjpl +  zlfn')
-try:
-    spzp = cbdr +  znth; print(f'spzp = {spzp}')
-except:
-    print('spzp = cbdr +  znth')
-try:
-    drlj = nwzv // fbcs; print(f'drlj = {drlj}')
-except:
-    print('drlj = nwzv // fbcs')
-try:
-    qrdh = lfwd +  jmzc; print(f'qrdh = {qrdh}')
-except:
-    print('qrdh = lfwd +  jmzc')
-try:
-    cpnl = hfnz *  lhnd; print(f'cpnl = {cpnl}')
-except:
-    print('cpnl = hfnz *  lhnd')
-try:
-    rvvd = pnld *  gshv; print(f'rvvd = {rvvd}')
-except:
-    print('rvvd = pnld *  gshv')
-try:
-    wdjg = gshb *  cnlb; print(f'wdjg = {wdjg}')
-except:
-    print('wdjg = gshb *  cnlb')
-try:
-    tzsb = tldl *  wztf; print(f'tzsb = {tzsb}')
-except:
-    print('tzsb = tldl *  wztf')
-try:
-    lbtn = wzmf *  twgf; print(f'lbtn = {lbtn}')
-except:
-    print('lbtn = wzmf *  twgf')
-try:
-    wtmf = cstd *  grcq; print(f'wtmf = {wtmf}')
-except:
-    print('wtmf = cstd *  grcq')
-try:
-    mtvg = rszj +  rcdf; print(f'mtvg = {mtvg}')
-except:
-    print('mtvg = rszj +  rcdf')
-try:
-    glsl = sqvt *  qztm; print(f'glsl = {glsl}')
-except:
-    print('glsl = sqvt *  qztm')
-try:
-    wgzj = jmdg *  bmjj; print(f'wgzj = {wgzj}')
-except:
-    print('wgzj = jmdg *  bmjj')
-try:
-    pdjn = gtfl +  nbqq; print(f'pdjn = {pdjn}')
-except:
-    print('pdjn = gtfl +  nbqq')
-try:
-    swrm = slbc // rwbp; print(f'swrm = {swrm}')
-except:
-    print('swrm = slbc // rwbp')
-try:
-    wlhj = qprd *  jhpc; print(f'wlhj = {wlhj}')
-except:
-    print('wlhj = qprd *  jhpc')
-try:
-    cvng = ghtf *  dfnr; print(f'cvng = {cvng}')
-except:
-    print('cvng = ghtf *  dfnr')
-try:
-    vdqd = dcwb // rcqp; print(f'vdqd = {vdqd}')
-except:
-    print('vdqd = dcwb // rcqp')
-try:
-    sfht = dtsm // znst; print(f'sfht = {sfht}')
-except:
-    print('sfht = dtsm // znst')
-try:
-    twdh = rhqf *  rtth; print(f'twdh = {twdh}')
-except:
-    print('twdh = rhqf *  rtth')
-try:
-    rzzm = qtgh +  fqjt; print(f'rzzm = {rzzm}')
-except:
-    print('rzzm = qtgh +  fqjt')
-try:
-    fvrv = fqdr *  rwvd; print(f'fvrv = {fvrv}')
-except:
-    print('fvrv = fqdr *  rwvd')
-try:
-    vqhs = rtlg *  cmqp; print(f'vqhs = {vqhs}')
-except:
-    print('vqhs = rtlg *  cmqp')
-try:
-    wrtc = fpfh *  dwzj; print(f'wrtc = {wrtc}')
-except:
-    print('wrtc = fpfh *  dwzj')
-try:
-    hjrq = bjts // pgrq; print(f'hjrq = {hjrq}')
-except:
-    print('hjrq = bjts // pgrq')
-try:
-    rvbd = mqgc -  ffdl; print(f'rvbd = {rvbd}')
-except:
-    print('rvbd = mqgc -  ffdl')
-try:
-    phwr = bsrd +  lnsr; print(f'phwr = {phwr}')
-except:
-    print('phwr = bsrd +  lnsr')
-try:
-    mmdd = hvfn -  rlmv; print(f'mmdd = {mmdd}')
-except:
-    print('mmdd = hvfn -  rlmv')
-try:
-    ljzq = lfqs // rrrr; print(f'ljzq = {ljzq}')
-except:
-    print('ljzq = lfqs // rrrr')
-try:
-    cbmr = tpzr -  nqgp; print(f'cbmr = {cbmr}')
-except:
-    print('cbmr = tpzr -  nqgp')
-try:
-    wmbw = fvgb +  tmff; print(f'wmbw = {wmbw}')
-except:
-    print('wmbw = fvgb +  tmff')
-try:
-    lpcl = dzmq // rswd; print(f'lpcl = {lpcl}')
-except:
-    print('lpcl = dzmq // rswd')
-try:
-    fqjt = nfcj +  jthf; print(f'fqjt = {fqjt}')
-except:
-    print('fqjt = nfcj +  jthf')
-try:
-    nfqr = mwqv -  lzvs; print(f'nfqr = {nfqr}')
-except:
-    print('nfqr = mwqv -  lzvs')
-try:
-    sqvt = grhf +  trnq; print(f'sqvt = {sqvt}')
-except:
-    print('sqvt = grhf +  trnq')
-try:
-    brlb = mwgd +  htsg; print(f'brlb = {brlb}')
-except:
-    print('brlb = mwgd +  htsg')
-try:
-    ffdl = gzvg *  hrlr; print(f'ffdl = {ffdl}')
-except:
-    print('ffdl = gzvg *  hrlr')
-try:
-    hqpn = fcjq -  bmdz; print(f'hqpn = {hqpn}')
-except:
-    print('hqpn = fcjq -  bmdz')
-try:
-    slbc = qcnj +  jlhg; print(f'slbc = {slbc}')
-except:
-    print('slbc = qcnj +  jlhg')
-try:
-    ctcf = pvqr // jbpq; print(f'ctcf = {ctcf}')
-except:
-    print('ctcf = pvqr // jbpq')
-try:
-    hjdc = rmbj +  gwnb; print(f'hjdc = {hjdc}')
-except:
-    print('hjdc = rmbj +  gwnb')
-try:
-    rcvp = zflf +  cjfp; print(f'rcvp = {rcvp}')
-except:
-    print('rcvp = zflf +  cjfp')
-try:
-    jhpc = ztdm *  pgbp; print(f'jhpc = {jhpc}')
-except:
-    print('jhpc = ztdm *  pgbp')
-try:
-    zjcz = vdqd *  hmbl; print(f'zjcz = {zjcz}')
-except:
-    print('zjcz = vdqd *  hmbl')
-try:
-    sqlw = hwnt *  vhzg; print(f'sqlw = {sqlw}')
-except:
-    print('sqlw = hwnt *  vhzg')
-try:
-    fmhl = mdds *  rzsd; print(f'fmhl = {fmhl}')
-except:
-    print('fmhl = mdds *  rzsd')
-try:
-    nqjh = fjlp *  nrvp; print(f'nqjh = {nqjh}')
-except:
-    print('nqjh = fjlp *  nrvp')
-try:
-    ffvq = lflj +  flwq; print(f'ffvq = {ffvq}')
-except:
-    print('ffvq = lflj +  flwq')
-try:
-    pvqr = qbwf *  nmsl; print(f'pvqr = {pvqr}')
-except:
-    print('pvqr = qbwf *  nmsl')
-try:
-    csgq = jtlf +  jfsj; print(f'csgq = {csgq}')
-except:
-    print('csgq = jtlf +  jfsj')
-try:
-    pgns = ddtr +  snmg; print(f'pgns = {pgns}')
-except:
-    print('pgns = ddtr +  snmg')
-try:
-    wnpm = cljz // pnmr; print(f'wnpm = {wnpm}')
-except:
-    print('wnpm = cljz // pnmr')
-try:
-    nzdr = dgcg +  nfqr; print(f'nzdr = {nzdr}')
-except:
-    print('nzdr = dgcg +  nfqr')
-try:
-    flwq = rcvp -  zbmg; print(f'flwq = {flwq}')
-except:
-    print('flwq = rcvp -  zbmg')
-try:
-    pbnz = gzrt *  qnhs; print(f'pbnz = {pbnz}')
-except:
-    print('pbnz = gzrt *  qnhs')
-try:
-    qbwf = jffr +  rsvw; print(f'qbwf = {qbwf}')
-except:
-    print('qbwf = jffr +  rsvw')
-try:
-    sfvb = wlbw +  fqvj; print(f'sfvb = {sfvb}')
-except:
-    print('sfvb = wlbw +  fqvj')
-try:
-    czrq = vbzj -  fnsj; print(f'czrq = {czrq}')
-except:
-    print('czrq = vbzj -  fnsj')
-try:
-    bsrd = zjcz *  bhfr; print(f'bsrd = {bsrd}')
-except:
-    print('bsrd = zjcz *  bhfr')
-try:
-    rcqs = hngp *  vsmh; print(f'rcqs = {rcqs}')
-except:
-    print('rcqs = hngp *  vsmh')
-try:
-    mblz = hcsd -  nrwh; print(f'mblz = {mblz}')
-except:
-    print('mblz = hcsd -  nrwh')
-try:
-    bqcr = lnph +  zfmh; print(f'bqcr = {bqcr}')
-except:
-    print('bqcr = lnph +  zfmh')
-try:
-    vlsb = cmgj +  rhdq; print(f'vlsb = {vlsb}')
-except:
-    print('vlsb = cmgj +  rhdq')
-try:
-    pgmj = jfrh *  rgjn; print(f'pgmj = {pgmj}')
-except:
-    print('pgmj = jfrh *  rgjn')
-try:
-    dtsm = qqrt +  mpbh; print(f'dtsm = {dtsm}')
-except:
-    print('dtsm = qqrt +  mpbh')
-try:
-    pjjt = srdj +  gzwz; print(f'pjjt = {pjjt}')
-except:
-    print('pjjt = srdj +  gzwz')
-try:
-    rtlg = wcvr *  szld; print(f'rtlg = {rtlg}')
-except:
-    print('rtlg = wcvr *  szld')
-try:
-    lttq = vwcj -  sctc; print(f'lttq = {lttq}')
-except:
-    print('lttq = vwcj -  sctc')
-try:
-    wbsd = lmms +  jncw; print(f'wbsd = {wbsd}')
-except:
-    print('wbsd = lmms +  jncw')
-try:
-    crqs = vbtp +  vzhs; print(f'crqs = {crqs}')
-except:
-    print('crqs = vbtp +  vzhs')
-try:
-    vbzb = mrtg *  zlwq; print(f'vbzb = {vbzb}')
-except:
-    print('vbzb = mrtg *  zlwq')
-try:
-    crwf = gzgs -  lfns; print(f'crwf = {crwf}')
-except:
-    print('crwf = gzgs -  lfns')
-try:
-    jjtt = pgzq *  cpgg; print(f'jjtt = {jjtt}')
-except:
-    print('jjtt = pgzq *  cpgg')
-try:
-    fvgc = qddh -  rdcl; print(f'fvgc = {fvgc}')
-except:
-    print('fvgc = qddh -  rdcl')
-try:
-    sjht = flfc +  cvng; print(f'sjht = {sjht}')
-except:
-    print('sjht = flfc +  cvng')
-try:
-    lvws = zbbb +  mmdt; print(f'lvws = {lvws}')
-except:
-    print('lvws = zbbb +  mmdt')
-try:
-    fbtr = qtlz *  jjzf; print(f'fbtr = {fbtr}')
-except:
-    print('fbtr = qtlz *  jjzf')
-try:
-    zsdz = znzt -  rzzm; print(f'zsdz = {zsdz}')
-except:
-    print('zsdz = znzt -  rzzm')
-try:
-    nbcz = nfpq -  rcqs; print(f'nbcz = {nbcz}')
-except:
-    print('nbcz = nfpq -  rcqs')
-try:
-    hwjj = tgfr *  jmch; print(f'hwjj = {hwjj}')
-except:
-    print('hwjj = tgfr *  jmch')
-try:
-    dldp = sccs +  vfdc; print(f'dldp = {dldp}')
-except:
-    print('dldp = sccs +  vfdc')
-try:
-    cbdr = sqrp *  twqn; print(f'cbdr = {cbdr}')
-except:
-    print('cbdr = sqrp *  twqn')
-try:
-    qnwt = dbdt +  vhgv; print(f'qnwt = {qnwt}')
-except:
-    print('qnwt = dbdt +  vhgv')
-try:
-    jvnn = cggv // zncv; print(f'jvnn = {jvnn}')
-except:
-    print('jvnn = cggv // zncv')
-try:
-    nfch = tbct // wlwz; print(f'nfch = {nfch}')
-except:
-    print('nfch = tbct // wlwz')
-try:
-    rcdf = vsln *  mcqs; print(f'rcdf = {rcdf}')
-except:
-    print('rcdf = vsln *  mcqs')
-try:
-    lzbz = rvnt // pbsw; print(f'lzbz = {lzbz}')
-except:
-    print('lzbz = rvnt // pbsw')
-try:
-    rlmv = qrdh -  qvgl; print(f'rlmv = {rlmv}')
-except:
-    print('rlmv = qrdh -  qvgl')
-try:
-    bzlq = qvnj *  pgpf; print(f'bzlq = {bzlq}')
-except:
-    print('bzlq = qvnj *  pgpf')
-try:
-    jjcv = rmgn *  jsrv; print(f'jjcv = {jjcv}')
-except:
-    print('jjcv = rmgn *  jsrv')
-try:
-    njdw = sqlw *  lpsw; print(f'njdw = {njdw}')
-except:
-    print('njdw = sqlw *  lpsw')
-try:
-    nfmd = swpt +  csgq; print(f'nfmd = {nfmd}')
-except:
-    print('nfmd = swpt +  csgq')
-try:
-    hdwn = rddw // shzr; print(f'hdwn = {hdwn}')
-except:
-    print('hdwn = rddw // shzr')
-try:
-    mpng = vmzj +  wrdt; print(f'mpng = {mpng}')
-except:
-    print('mpng = vmzj +  wrdt')
-try:
-    snmg = qrrh *  bchh; print(f'snmg = {snmg}')
-except:
-    print('snmg = qrrh *  bchh')
-try:
-    ztdm = cwdh *  nzdr; print(f'ztdm = {ztdm}')
-except:
-    print('ztdm = cwdh *  nzdr')
-try:
-    rjwn = zzqt *  lrpc; print(f'rjwn = {rjwn}')
-except:
-    print('rjwn = zzqt *  lrpc')
-try:
-    dppd = vljf *  dqdh; print(f'dppd = {dppd}')
-except:
-    print('dppd = vljf *  dqdh')
-try:
-    jhrj = pwtd +  lctf; print(f'jhrj = {jhrj}')
-except:
-    print('jhrj = pwtd +  lctf')
-try:
-    rwvd = nqdv *  vlqf; print(f'rwvd = {rwvd}')
-except:
-    print('rwvd = nqdv *  vlqf')
-try:
-    wbnb = bhcf *  blzm; print(f'wbnb = {wbnb}')
-except:
-    print('wbnb = bhcf *  blzm')
-try:
-    wcbb = vmgz *  wlfj; print(f'wcbb = {wcbb}')
-except:
-    print('wcbb = vmgz *  wlfj')
-try:
-    nqmw = rnhr +  gjhb; print(f'nqmw = {nqmw}')
-except:
-    print('nqmw = rnhr +  gjhb')
-try:
-    nmhm = szfq +  hqqj; print(f'nmhm = {nmhm}')
-except:
-    print('nmhm = szfq +  hqqj')
-try:
-    qmss = jhnd +  fmnv; print(f'qmss = {qmss}')
-except:
-    print('qmss = jhnd +  fmnv')
-try:
-    dcwb = nrnm *  nqmw; print(f'dcwb = {dcwb}')
-except:
-    print('dcwb = nrnm *  nqmw')
-try:
-    tqsh = hjjd *  blth; print(f'tqsh = {tqsh}')
-except:
-    print('tqsh = hjjd *  blth')
-try:
-    ndbd = ttlc *  wnpm; print(f'ndbd = {ndbd}')
-except:
-    print('ndbd = ttlc *  wnpm')
-try:
-    hdrq = rwfc // gmdc; print(f'hdrq = {hdrq}')
-except:
-    print('hdrq = rwfc // gmdc')
-try:
-    mcqs = hjrq // stsg; print(f'mcqs = {mcqs}')
-except:
-    print('mcqs = hjrq // stsg')
-try:
-    tnns = tvvw *  tdlt; print(f'tnns = {tnns}')
-except:
-    print('tnns = tvvw *  tdlt')
-try:
-    zfmh = vltz +  qrnw; print(f'zfmh = {zfmh}')
-except:
-    print('zfmh = vltz +  qrnw')
-try:
-    tpzq = nltf *  sjth; print(f'tpzq = {tpzq}')
-except:
-    print('tpzq = nltf *  sjth')
-try:
-    dzmq = tpzq -  wvrp; print(f'dzmq = {dzmq}')
-except:
-    print('dzmq = tpzq -  wvrp')
-try:
-    fwsm = gczn *  zljd; print(f'fwsm = {fwsm}')
-except:
-    print('fwsm = gczn *  zljd')
-try:
-    qhcb = jhrj // brjv; print(f'qhcb = {qhcb}')
-except:
-    print('qhcb = jhrj // brjv')
-try:
-    wftc = qhcb *  lbmt; print(f'wftc = {wftc}')
-except:
-    print('wftc = qhcb *  lbmt')
-try:
-    wvrp = vbzb +  rvvd; print(f'wvrp = {wvrp}')
-except:
-    print('wvrp = vbzb +  rvvd')
-try:
-    stgz = rvbd // fvgz; print(f'stgz = {stgz}')
-except:
-    print('stgz = rvbd // fvgz')
-try:
-    szfq = vszt *  qnwt; print(f'szfq = {szfq}')
-except:
-    print('szfq = vszt *  qnwt')
-try:
-    lnhw = mnlt *  fnwt; print(f'lnhw = {lnhw}')
-except:
-    print('lnhw = mnlt *  fnwt')
-try:
-    nhms = lhhj *  qdfm; print(f'nhms = {nhms}')
-except:
-    print('nhms = lhhj *  qdfm')
-try:
-    nnfg = ldqd +  bmgz; print(f'nnfg = {nnfg}')
-except:
-    print('nnfg = ldqd +  bmgz')
-try:
-    gzhg = rwlv *  tpfc; print(f'gzhg = {gzhg}')
-except:
-    print('gzhg = rwlv *  tpfc')
-try:
-    mjfv = brgq +  ssbp; print(f'mjfv = {mjfv}')
-except:
-    print('mjfv = brgq +  ssbp')
-try:
-    vtzj = pfjz *  sqcd; print(f'vtzj = {vtzj}')
-except:
-    print('vtzj = pfjz *  sqcd')
-try:
-    tjtp = bvdh // vttn; print(f'tjtp = {tjtp}')
-except:
-    print('tjtp = bvdh // vttn')
-try:
-    wmjh = rzjf // jjrr; print(f'wmjh = {wmjh}')
-except:
-    print('wmjh = rzjf // jjrr')
-try:
-    hwnt = vlsb // ctjf; print(f'hwnt = {hwnt}')
-except:
-    print('hwnt = vlsb // ctjf')
-try:
-    hpff = mldh *  vrcf; print(f'hpff = {hpff}')
-except:
-    print('hpff = mldh *  vrcf')
-try:
-    grhf = ggnm // brvq; print(f'grhf = {grhf}')
-except:
-    print('grhf = ggnm // brvq')
-try:
-    hvfn = fbfn *  pjmz; print(f'hvfn = {hvfn}')
-except:
-    print('hvfn = fbfn *  pjmz')
-try:
-    mmdt = wgzj // httf; print(f'mmdt = {mmdt}')
-except:
-    print('mmdt = wgzj // httf')
-try:
-    jzbl = wwbc // ntft; print(f'jzbl = {jzbl}')
-except:
-    print('jzbl = wwbc // ntft')
-try:
-    wzmf = wdjg // hfsp; print(f'wzmf = {wzmf}')
-except:
-    print('wzmf = wdjg // hfsp')
-try:
-    bcrw = pbnz +  fvms; print(f'bcrw = {bcrw}')
-except:
-    print('bcrw = pbnz +  fvms')
-try:
-    dpdg = cbmr *  jzlj; print(f'dpdg = {dpdg}')
-except:
-    print('dpdg = cbmr *  jzlj')
-try:
-    qcnj = qbqw -  tdsq; print(f'qcnj = {qcnj}')
-except:
-    print('qcnj = qbqw -  tdsq')
-try:
-    vmzj = jhhb *  qscm; print(f'vmzj = {vmzj}')
-except:
-    print('vmzj = jhhb *  qscm')
-try:
-    vrgf = sgrh *  hlqd; print(f'vrgf = {vrgf}')
-except:
-    print('vrgf = sgrh *  hlqd')
-try:
-    rznq = sswv *  cpvp; print(f'rznq = {rznq}')
-except:
-    print('rznq = sswv *  cpvp')
-try:
-    fqvj = hpff // rwgz; print(f'fqvj = {fqvj}')
-except:
-    print('fqvj = hpff // rwgz')
-try:
-    zqnb = tnvm +  tlwh; print(f'zqnb = {zqnb}')
-except:
-    print('zqnb = tnvm +  tlwh')
-try:
-    rzjf = fvrv // pjgv; print(f'rzjf = {rzjf}')
-except:
-    print('rzjf = fvrv // pjgv')
-try:
-    wwbc = scwt // cdrh; print(f'wwbc = {wwbc}')
-except:
-    print('wwbc = scwt // cdrh')
-try:
-    lhnd = stqg +  jbwl; print(f'lhnd = {lhnd}')
-except:
-    print('lhnd = stqg +  jbwl')
-try:
-    ndfp = hmpm +  pnwf; print(f'ndfp = {ndfp}')
-except:
-    print('ndfp = hmpm +  pnwf')
-try:
-    vgjv = nbcz // gzbs; print(f'vgjv = {vgjv}')
-except:
-    print('vgjv = nbcz // gzbs')
-try:
-    pgph = bbwt *  jtpb; print(f'pgph = {pgph}')
-except:
-    print('pgph = bbwt *  jtpb')
-try:
-    hmbf = mbtf -  jzbl; print(f'hmbf = {hmbf}')
-except:
-    print('hmbf = mbtf -  jzbl')
-try:
-    hnwz = jmrn +  hshw; print(f'hnwz = {hnwz}')
-except:
-    print('hnwz = jmrn +  hshw')
-try:
-    fqww = wftc +  rdrh; print(f'fqww = {fqww}')
-except:
-    print('fqww = wftc +  rdrh')
-try:
-    sqrp = jhbz *  ngvh; print(f'sqrp = {sqrp}')
-except:
-    print('sqrp = jhbz *  ngvh')
-try:
-    sgrh = slvn +  qchc; print(f'sgrh = {sgrh}')
-except:
-    print('sgrh = slvn +  qchc')
-try:
-    bmpq = lzbz *  szlq; print(f'bmpq = {bmpq}')
-except:
-    print('bmpq = lzbz *  szlq')
-try:
-    pwtd = jgvf *  qtfg; print(f'pwtd = {pwtd}')
-except:
-    print('pwtd = jgvf *  qtfg')
-try:
-    npvz = fcml +  gzpn; print(f'npvz = {npvz}')
-except:
-    print('npvz = fcml +  gzpn')
-try:
-    rtqd = fcrz *  mtvg; print(f'rtqd = {rtqd}')
-except:
-    print('rtqd = fcrz *  mtvg')
-try:
-    gfgz = twdh // cvbt; print(f'gfgz = {gfgz}')
-except:
-    print('gfgz = twdh // cvbt')
-try:
-    vthl = bqhh +  nfrh; print(f'vthl = {vthl}')
-except:
-    print('vthl = bqhh +  nfrh')
-try:
-    bvdh = hvvj +  rmtr; print(f'bvdh = {bvdh}')
-except:
-    print('bvdh = hvvj +  rmtr')
-try:
-    trnq = wtmf +  nqjh; print(f'trnq = {trnq}')
-except:
-    print('trnq = wtmf +  nqjh')
-try:
-    qfbs = qmvp *  ndfp; print(f'qfbs = {qfbs}')
-except:
-    print('qfbs = qmvp *  ndfp')
-try:
-    rbcr = csbd -  ffvq; print(f'rbcr = {rbcr}')
-except:
-    print('rbcr = csbd -  ffvq')
-try:
-    jcfb = vtrd *  mpng; print(f'jcfb = {jcfb}')
-except:
-    print('jcfb = vtrd *  mpng')
-try:
-    zqnd = hwjj *  nwlg; print(f'zqnd = {zqnd}')
-except:
-    print('zqnd = hwjj *  nwlg')
-try:
-    rpjs = hsvj *  ctcf; print(f'rpjs = {rpjs}')
-except:
-    print('rpjs = hsvj *  ctcf')
-try:
-    jhhb = rvls -  mmdd; print(f'jhhb = {jhhb}')
-except:
-    print('jhhb = rvls -  mmdd')
-try:
-    nqdv = tnns +  ghbn; print(f'nqdv = {nqdv}')
-except:
-    print('nqdv = tnns +  ghbn')
-try:
-    cssz = rsph *  fgpf; print(f'cssz = {cssz}')
-except:
-    print('cssz = rsph *  fgpf')
-try:
-    gzwz = hdrq +  nmgl; print(f'gzwz = {gzwz}')
-except:
-    print('gzwz = hdrq +  nmgl')
-try:
-    vhgv = tcnm +  hcmp; print(f'vhgv = {vhgv}')
-except:
-    print('vhgv = tcnm +  hcmp')
-try:
-    cmqp = lttq +  fdcp; print(f'cmqp = {cmqp}')
-except:
-    print('cmqp = lttq +  fdcp')
-try:
-    lvgb = tlmm *  zfvb; print(f'lvgb = {lvgb}')
-except:
-    print('lvgb = tlmm *  zfvb')
-try:
-    lfwd = wvbj *  vdmb; print(f'lfwd = {lfwd}')
-except:
-    print('lfwd = wvbj *  vdmb')
-try:
-    rwlv = sjht +  csqw; print(f'rwlv = {rwlv}')
-except:
-    print('rwlv = sjht +  csqw')
+lflj = gsjg *  bqcr
+rbzb = fbtr // hrpw
+wjvt = dhnj // hjbh
+csqw = dsfr +  crqs
+rlrl = lcgp *  gfgz
+tntq = qcwm +  lvhd
+stqg = crwf +  rjwn
+tqzg = spzp *  nwnm
+hshw = rcpq +  jjcv
+cljz = ljzq *  zwds
+rbft = mrqd +  lbfw
+mfzt = glsl -  qtfz
+fhdg = zgdt *  jtbb
+vpbf = tpcs -  ncvc
+cbpz = wjvt -  thdz
+qnhs = dbrp // qfgw
+gpwh = chdn +  dbws
+wcfl = lbtn +  stgz
+mrqd = wcfl *  bwtd
+fwsh = nfch -  mtbf
+mdds = bvbh -  qqpg
+dbrp = gvhw *  rjsc
+tlmm = dppd // cdjz
+tnvm = zwnb *  lhsp
+fjtj = lnhw +  nhms
+pnsb = fqww +  lpcl
+fmgp = fwsh *  wcqd
+sjth = psbp +  humn
+brhd = hgmq *  pmqh
+tpzr = rbcr // svzn
+nfgs = ppph +  psrn
+vltz = nzvz *  rwlz
+lvhd = czrq *  fzrw
+wqln = mhbq -  tfgm
+lnsr = tlrt +  dpdg
+csbd = rwls *  fwgr
+ftrp = rlwt *  bqqf
+fvzl = zmch *  fwnz
+rdcg = tzsb +  jqvb
+pgpf = lfnz +  mrzd
+tvvw = jvnn *  snsr
+hrlr = cssz -  grbq
+scjm = hfjb +  twcj
+hmlz = mlss -  npth
+mhbq = qsjv *  vqmw
+pfjc = gqrf *  brhd
+vhcb = zqnd +  wlhj
+jncw = njdw -  lvqr
+qbqw = gtnb +  gpwh
+gtjs = drlj +  vlth
+pmqh = rmjd *  csjf
+rhqf = qdvp +  wrtc
+dsvc = ppwr -  rsgs
+wrdt = mjpr *  wbsd
+tbct = dvqf -  rzth
+dbws = pjjt +  zbql
+znth = lvws *  pzgs
+cjjt = fhhn -  fpsz
+fmrd = vpbf +  zsvz
+nfpq = vqhs // hlcz
+cmgj = pqvc *  lczt
+rvls = zqnb // ncvp
+fjrr = lvgb +  ggsq
+ltdb = rmps +  chwm
+ztlm = fmgp +  vrwd
+dvqf = nmbm *  rbft
+jzsc = mwlt +  rrcv
+dqtf = swrm *  ltfp
+nwzv = pmlc -  wpnj
+rddw = jjrt +  scjm
+mszn = mscd +  dztf
+dqdh = wmbw +  hjdc
+ppph = bplt +  hnwz
+hvvj = mttd +  wqln
+rrcv = fjtj *  bcgn
+mdvl = qtdh *  gtjs
+qnmc = mnqj *  ctcg
+gzgs = rsjz +  hqpn
+qmdq = rbzb +  mqtz
+rsgs = hlhd +  vcsv
+hjjd = dqtf +  cpnl
+bmjj = jjtt +  mjfv
+tfgm = fmcr +  vrgf
+httb = pbwl *  nmgd
+hfjb = dfhm +  npvz
+lbfw = gpgw *  nmhm
+qnjm = qfbs +  qnmc
+vqmw = hdwn +  hcsc
+cbsc = vtzj +  tjtp
+bjts = fwsm +  bgqn
+qlcw = fvgc +  zpjj
+nwlg = pgns +  vgjv
+cggv = zmtj *  qmdq
+ctcg = ftrp -  rznq
+sqcd = vccr +  dcgr
+dfnr = gffh +  sfvb
+bqhh = jbsb *  jjfm
+fhhn = pgph // rsth
+zbbb = nfmd *  rwbb
+bqqf = sfht -  rgts
+flzc = vhcb +  wwjb
+grcr = dldp +  dsvc
+cnlb = pdjn *  vhpg
+lfnz = prpc +  bmpq
+mpbh = pnsb +  mszn
+zgdt = nfgs +  rzjr
+wwjb = tntq *  jzsc
+jffr = brlb -  vpjf
+mlss = ztlm // dzmb
+rmps = pglm +  jrgp
+gqrf = twqg *  tqzg
+dcgr = ndbd +  zqjm
+hcsc = rtqd +  wbnb
+swpt = lsrt +  fhdg
+vzhs = ltdb -  gqfn
+jjrt = nfsb +  nhlc
+jbsb = hmbf *  zwvp
+lctf = wldz +  cjjt
+gtnb = pgmj // pzlz
+mwlt = ttnp *  bcrw
+dsfr = qmss +  hlnd
+ggnm = sltj -  tjwg
+mscd = cgvn -  zsdz
+jtpb = rlrl *  fdbl
+fwgr = mdvl +  rpjs
+nfsb = jcfb -  vthl
+vbtp = zpsz *  qlcw
+hqqj = trzg *  nssm
+ngvh = mrbg +  fjrr
+hlhd = srdb *  qbzc
+mqgc = phwr // dftp
+lttc = fhdf *  mblz
+rwbb = plgz +  fmrd
+hcsd = fvzl *  flzc
+fwnz = bvfj *  gnjf
+lczt = vblr +  cbpz
+pmlc = mfzt // cvwh
+jqvb = nnfg *  tsbw
+gnjf = httb +  grcr
+csjf = sjss +  wmjh
+qprd = gzhg -  tqsh
+fgpf = fmhl // shpn
+sltj = cbsc *  mprw
+tlwh = qnjm // wjrw
+bmgz = hmlz // vrnr
+jmch = wcbb +  bzlq
+nrwh = rdcg // zcfq
+spzp = cbdr +  znth
+drlj = nwzv // fbcs
+qrdh = lfwd +  jmzc
+cpnl = hfnz *  lhnd
+wdjg = gshb *  cnlb
+lbtn = wzmf *  twgf
+mtvg = rszj +  rcdf
+glsl = sqvt *  qztm
+wgzj = jmdg *  bmjj
+swrm = slbc // rwbp
+wlhj = qprd *  jhpc
+cvng = ghtf *  dfnr
+vdqd = dcwb // rcqp
+sfht = dtsm // znst
+twdh = rhqf *  rtth
+rzzm = qtgh +  fqjt
+fvrv = fqdr *  rwvd
+vqhs = rtlg *  cmqp
+hjrq = bjts // pgrq
+rvbd = mqgc -  ffdl
+phwr = bsrd +  lnsr
+mmdd = hvfn -  rlmv
+cbmr = tpzr -  nqgp
+lpcl = dzmq // rswd
+sqvt = grhf +  trnq
+ffdl = gzvg *  hrlr
+slbc = qcnj +  jlhg
+ctcf = pvqr // jbpq
+jhpc = ztdm *  pgbp
+zjcz = vdqd *  hmbl
+sqlw = hwnt *  vhzg
+fmhl = mdds *  rzsd
+ffvq = lflj +  flwq
+pvqr = qbwf *  nmsl
+pgns = ddtr +  snmg
+wnpm = cljz // pnmr
+pbnz = gzrt *  qnhs
+qbwf = jffr +  rsvw
+sfvb = wlbw +  fqvj
+bsrd = zjcz *  bhfr
+mblz = hcsd -  nrwh
+bqcr = lnph +  zfmh
+vlsb = cmgj +  rhdq
+dtsm = qqrt +  mpbh
+pjjt = srdj +  gzwz
+wbsd = lmms +  jncw
+crqs = vbtp +  vzhs
+crwf = gzgs -  lfns
+sjht = flfc +  cvng
+lvws = zbbb +  mmdt
+zsdz = znzt -  rzzm
+nbcz = nfpq -  rcqs
+hwjj = tgfr *  jmch
+cbdr = sqrp *  twqn
+qnwt = dbdt +  vhgv
+jvnn = cggv // zncv
+nfch = tbct // wlwz
+rcdf = vsln *  mcqs
+rlmv = qrdh -  qvgl
+bzlq = qvnj *  pgpf
+njdw = sqlw *  lpsw
+nfmd = swpt +  csgq
+hdwn = rddw // shzr
+mpng = vmzj +  wrdt
+dppd = vljf *  dqdh
+jhrj = pwtd +  lctf
+rwvd = nqdv *  vlqf
+nmhm = szfq +  hqqj
+tqsh = hjjd *  blth
+ndbd = ttlc *  wnpm
+mcqs = hjrq // stsg
+tnns = tvvw *  tdlt
+zfmh = vltz +  qrnw
+tpzq = nltf *  sjth
+dzmq = tpzq -  wvrp
+qhcb = jhrj // brjv
+wftc = qhcb *  lbmt
+stgz = rvbd // fvgz
+szfq = vszt *  qnwt
+nnfg = ldqd +  bmgz
+gzhg = rwlv *  tpfc
+vtzj = pfjz *  sqcd
+tjtp = bvdh // vttn
+wmjh = rzjf // jjrr
+hwnt = vlsb // ctjf
+grhf = ggnm // brvq
+mmdt = wgzj // httf
+jzbl = wwbc // ntft
+wzmf = wdjg // hfsp
+bcrw = pbnz +  fvms
+dpdg = cbmr *  jzlj
+qcnj = qbqw -  tdsq
+vmzj = jhhb *  qscm
+vrgf = sgrh *  hlqd
+zqnb = tnvm +  tlwh
+rzjf = fvrv // pjgv
+lhnd = stqg +  jbwl
+vgjv = nbcz // gzbs
+pgph = bbwt *  jtpb
+hmbf = mbtf -  jzbl
+hnwz = jmrn +  hshw
+fqww = wftc +  rdrh
+sqrp = jhbz *  ngvh
+rtqd = fcrz *  mtvg
+gfgz = twdh // cvbt
+vthl = bqhh +  nfrh
+bvdh = hvvj +  rmtr
+rbcr = csbd -  ffvq
+jcfb = vtrd *  mpng
+zqnd = hwjj *  nwlg
+rpjs = hsvj *  ctcf
+jhhb = rvls -  mmdd
+nqdv = tnns +  ghbn
+cssz = rsph *  fgpf
+lvgb = tlmm *  zfvb
+rwlv = sjht +  csqw
+
+### try:
+###     rwlv = sjht +  csqw; print(f'rwlv = {rwlv}')
+### except:
+###     print('rwlv = sjht +  csqw')
 
 print('')
 print('humn: ???')
