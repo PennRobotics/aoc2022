@@ -1,4 +1,4 @@
-DEBUG = print if False else lambda *a,**kw: None
+DEBUG = print if True else lambda *a,**kw: None
 
 import re
 
@@ -70,7 +70,7 @@ for turn, walk in path:
     for _ in range(walk):
         nr, nc = next_move(r, c, d)
         if char_at((nr,nc,)) == '#':
-            DEBUG('WALL!')
+            #DEBUG('WALL!')
             continue
         else:
             r, c = nr, nc
@@ -78,6 +78,11 @@ for turn, walk in path:
 
 DEBUG('\n'.join([r + '|' for r in maze]))
 DEBUG('----', flush=True)
+
+DEBUG(len(maze))
+DEBUG(len(maze[0]))
+
+# TODO: create a jump map for all r,c,d returning next r,c,d
 
 print(f'Part A: {1000*r + 4*c + d}')
 print(f'Part B: {0}')
