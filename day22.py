@@ -10,12 +10,18 @@ LEFT = 2
 UP = 3
 CIRCLE = 4
 
-with open('input22', 'r') as file:
+with open('sample22', 'r') as file:
+#with open('input22', 'r') as file:
     maze, path = file.read().rstrip('\n').split('\n\n')
 maze = maze.split('\n')
 rowlen = max(map(len, maze))
 maze = [row.ljust(rowlen + 1) for row in maze] + [' ' * (rowlen + 1)]
-# TODO: generate empty 3d maze for navigation debugging, if needed
+
+DEBUG(maze)
+# Generate empty 3d maze for direction debugging
+maze = [' '*50 + '.'*100 + ' ']*50 + [' '*50 + '.'*50 + ' '*51]*50 + ['.'*100 + ' '*51]*50 + ['.'*50 + ' '*101]*50 + [' '*151]
+DEBUG(maze)
+DEBUG('\n'.join(maze))
 sr, sc, sd = 1, 1 + maze[0].index('.'), RIGHT
 
 DEBUG(path)
@@ -181,48 +187,54 @@ for jc in range(0,50):  # E, F
 
     #jr, jd = 150, UP  # F3 -> E3
 
-    jr, jd = 199, DOWN  # F1 -> A1
+    jr, jd = 200, DOWN  # F1 -> A1
     tr, tc, td = 0, jc + 100, DOWN
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
 # Vertical-while-flat edges of faces F, E, and D
-for jr in range(100,150):  # D, E
+for jr in range(100,151):  # D, E
     jc, jd = 0, LEFT  # E2 -> B0
-    tr, tc, td = 149 - jr, 50, RIGHT
+    tr, tc, td = 150 - jr, 50, RIGHT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
     #jc, jd = 49, RIGHT  # E0 -> D0
 
     #jc, jd = 50, LEFT  # D2 -> E2
 
-    jc, jd = 99, RIGHT  # D0 -> A2
-    tr, tc, td = 149 - jr, 149, LEFT
+    jc, jd = 100, RIGHT  # D0 -> A2
+    tr, tc, td = 150 - jr, 150, LEFT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
-for jr in range(150,200):  # F
-    jc, jd = 0, LEFT  # F2 -> B1
+for jr in range(150,201):  # F
+    jc, jd = 1, LEFT  # F2 -> B1
     tr, tc, td = 0, jr - 100, DOWN
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
-    jc, jd = 49, RIGHT  # F0 -> D3
-    tr, tc, td = 149, jr - 100, UP
+    jc, jd = 50, RIGHT  # F0 -> D3
+    tr, tc, td = 150, jr - 100, UP
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
 DEBUG(len(jump_list))
 
 def next_3d_move(row, col, di):
     if (row,col,di,) in jump_list:
+        DEBUG(f'jump {(row,col,di,)} -> {jump_list[(row,col,di,)]}')
         return jump_list[(row,col,di,)]
     return (row + 1*(di==DOWN) + -1*(di==UP), col + 1*(di==RIGHT) + -1*(di==LEFT), di,)
 
 r, c, d = sr, sc, sd
 for turn, walk in path:
-    #maze[r-1] = maze[r-1][:c-1] + 'x' + maze[r-1][c:]
+    maze[r-1] = maze[r-1][:c-1] + 'x' + maze[r-1][c:]
     d = (d + turn) % CIRCLE;
     for _ in range(walk):
         nr, nc, nd = next_3d_move(r, c, d)
         if char_at((nr,nc,)) != '#':
             r, c, d = nr, nc, nd
-            #maze[r-1] = maze[r-1][:c-1] + 'x' + maze[r-1][c:]
+            maze[r-1] = maze[r-1][:c-1] + 'x' + maze[r-1][c:]
+
+DEBUG(path)
+
+DEBUG('\n'.join([r + '|' for r in maze]))
+DEBUG('----')
 
 print(f'Part B: {1000*r + 4*c + d}')  # 121245 is too high
