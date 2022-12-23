@@ -1,4 +1,4 @@
-DEBUG = print if True else lambda *a,**kw: None
+DEBUG = print if False else lambda *a,**kw: None
 
 import re
 
@@ -10,17 +10,15 @@ LEFT = 2
 UP = 3
 CIRCLE = 4
 
-with open('sample22', 'r') as file:
-#with open('input22', 'r') as file:
+with open('input22', 'r') as file:
     maze, path = file.read().rstrip('\n').split('\n\n')
 maze = maze.split('\n')
 rowlen = max(map(len, maze))
 maze = [row.ljust(rowlen + 1) for row in maze] + [' ' * (rowlen + 1)]
 
-DEBUG(maze)
 # Generate empty 3d maze for direction debugging
-maze = [' '*50 + '.'*100 + ' ']*50 + [' '*50 + '.'*50 + ' '*51]*50 + ['.'*100 + ' '*51]*50 + ['.'*50 + ' '*101]*50 + [' '*151]
-DEBUG(maze)
+#maze = [' '*50 + '.'*100 + ' ']*50 + [' '*50 + '.'*50 + ' '*51]*50 + ['.'*100 + ' '*51]*50 + ['.'*50 + ' '*101]*50 + [' '*151]
+#DEBUG(maze)
 DEBUG('\n'.join(maze))
 sr, sc, sd = 1, 1 + maze[0].index('.'), RIGHT
 
@@ -126,9 +124,9 @@ DEBUG('----', flush=True)
 # =====================================================
 jump_list = {}
 # Top and bottom edge of upper-half faces (while flat, e.g. face A, B, and C)
-for jc in range(50,100):  # B, C
-    jr, jd = 0, UP  # B3 -> F0
-    tr, tc, td = jc + 100, jr, RIGHT
+for jc in range(51,101):  # B, C
+    jr, jd = 1, UP  # B3 -> F0
+    tr, tc, td = jc + 100, 1, RIGHT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
     #jr, jd = 49, DOWN  # B1 -> C1 (no jump needed)
@@ -137,50 +135,50 @@ for jc in range(50,100):  # B, C
 
     #jr, jd = 99, DOWN  # C1 -> D1
 
-for jc in range(100,150):  # A
-    jr, jd = 0, UP  # A3 -> F3
-    tr, tc, td = 199, jc - 100, UP
+for jc in range(101,151):  # A
+    jr, jd = 1, UP  # A3 -> F3
+    tr, tc, td = 200, jc - 100, UP
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
-    jr, jd = 49, DOWN  # A1 -> C2
-    tr, tc, td = jc - 50, 99, LEFT
+    jr, jd = 50, DOWN  # A1 -> C2
+    tr, tc, td = jc - 50, 100, LEFT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
 # Vertical-while-flat edges of top faces
-for jr in range(0,50):  # A, B
-    jc, jd = 50, LEFT  # B2 -> E0
-    tr, tc, td = 149 - jr, 0, RIGHT
+for jr in range(1,51):  # A, B
+    jc, jd = 51, LEFT  # B2 -> E0
+    tr, tc, td = 151 - jr, 1, RIGHT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
     #jc, jd = 99, RIGHT  # B0
 
     #jc, jd = 100, LEFT  # A2
 
-    jc, jd = 149, RIGHT  # A0 -> D2
-    tr, tc, td = 149 - jr, 99, LEFT
+    jc, jd = 150, RIGHT  # A0 -> D2
+    tr, tc, td = 151 - jr, 100, LEFT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
 # Vertical edges of face C
-for jr in range(50,100):
-    jc, jd = 50, LEFT  # C2 -> E1
-    tr, tc, td = 100, jr - 50, DOWN
+for jr in range(51,101):
+    jc, jd = 51, LEFT  # C2 -> E1
+    tr, tc, td = 101, jr - 50, DOWN
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
-    jc, jd = 99, RIGHT  # C0 -> A3
-    tr, tc, td = 49, jr + 50, UP
+    jc, jd = 100, RIGHT  # C0 -> A3
+    tr, tc, td = 50, jr + 50, UP
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
 # Top and bottom horizontal-while-flat edges of faces F, E, and D
-for jc in range(50,100):  # D
+for jc in range(51,101):  # D
     #jr, jd = 100, UP  # D3 -> C3
 
-    jr, jd = 149, DOWN  # D1 -> F2
-    tr, tc, td = jc + 100, 49, LEFT
+    jr, jd = 150, DOWN  # D1 -> F2
+    tr, tc, td = jc + 100, 50, LEFT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
-for jc in range(0,50):  # E, F
-    jr, jd = 100, UP  # E3 -> C0
-    tr, tc, td = jc + 50, 50, RIGHT
+for jc in range(1,51):  # E, F
+    jr, jd = 101, UP  # E3 -> C0
+    tr, tc, td = jc + 50, 51, RIGHT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
     #jr, jd = 149, DOWN  # E1 -> F1
@@ -188,13 +186,13 @@ for jc in range(0,50):  # E, F
     #jr, jd = 150, UP  # F3 -> E3
 
     jr, jd = 200, DOWN  # F1 -> A1
-    tr, tc, td = 0, jc + 100, DOWN
+    tr, tc, td = 1, jc + 100, DOWN
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
 # Vertical-while-flat edges of faces F, E, and D
-for jr in range(100,151):  # D, E
-    jc, jd = 0, LEFT  # E2 -> B0
-    tr, tc, td = 150 - jr, 50, RIGHT
+for jr in range(101,151):  # D, E
+    jc, jd = 1, LEFT  # E2 -> B0
+    tr, tc, td = 151 - jr, 51, RIGHT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
     #jc, jd = 49, RIGHT  # E0 -> D0
@@ -202,12 +200,12 @@ for jr in range(100,151):  # D, E
     #jc, jd = 50, LEFT  # D2 -> E2
 
     jc, jd = 100, RIGHT  # D0 -> A2
-    tr, tc, td = 150 - jr, 150, LEFT
+    tr, tc, td = 151 - jr, 150, LEFT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
-for jr in range(150,201):  # F
+for jr in range(151,201):  # F
     jc, jd = 1, LEFT  # F2 -> B1
-    tr, tc, td = 0, jr - 100, DOWN
+    tr, tc, td = 1, jr - 100, DOWN
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
     jc, jd = 50, RIGHT  # F0 -> D3
@@ -224,6 +222,9 @@ def next_3d_move(row, col, di):
 
 r, c, d = sr, sc, sd
 for turn, walk in path:
+    DEBUG('\n'.join([r + '|' for r in maze]))
+    DEBUG('----')
+    #keypress = input()  # TODO-debug
     maze[r-1] = maze[r-1][:c-1] + 'x' + maze[r-1][c:]
     d = (d + turn) % CIRCLE;
     for _ in range(walk):
