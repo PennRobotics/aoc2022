@@ -1,4 +1,4 @@
-DEBUG = print if False else lambda *a,**kw: None
+# Note: `maze` uses 1-indexing
 
 import re
 
@@ -16,21 +16,10 @@ maze = maze.split('\n')
 rowlen = max(map(len, maze))
 maze = [row.ljust(rowlen + 1) for row in maze] + [' ' * (rowlen + 1)]
 
-# Generate empty 3d maze for direction debugging
-#maze = [' '*50 + '.'*100 + ' ']*50 + [' '*50 + '.'*50 + ' '*51]*50 + ['.'*100 + ' '*51]*50 + ['.'*50 + ' '*101]*50 + [' '*151]
-#DEBUG(maze)
-DEBUG('\n'.join(maze))
 sr, sc, sd = 1, 1 + maze[0].index('.'), RIGHT
-
-DEBUG(path)
 
 turn_fn = lambda t: CW if t == 'R' else CCW
 path = tuple([(0, int(re.match('[0-9]+', path)[0]),)] + [(turn_fn(e[0]), int(e[1:])) for e in re.findall('[RL][0-9]+', path)])
-
-DEBUG(path)
-
-DEBUG('\n'.join([r + '|' for r in maze]))
-DEBUG('----')
 
 char_at = lambda p: maze[p[0]-1][p[1]-1]
 
@@ -71,18 +60,13 @@ def next_move(row, col, di):
 
 r, c, d = sr, sc, sd
 for turn, walk in path:
-    #maze[r-1] = maze[r-1][:c-1] + 'x' + maze[r-1][c:]
     d = (d + turn) % CIRCLE;
     for _ in range(walk):
         nr, nc = next_move(r, c, d)
         if char_at((nr,nc,)) != '#':
             r, c = nr, nc
-            #maze[r-1] = maze[r-1][:c-1] + 'x' + maze[r-1][c:]
 
 print(f'Part A: {1000*r + 4*c + d}')
-
-DEBUG('\n'.join([r + '|' for r in maze]))
-DEBUG('----', flush=True)
 
 #              | c=150
 # o   +---+---x
@@ -129,11 +113,11 @@ for jc in range(51,101):  # B, C
     tr, tc, td = jc + 100, 1, RIGHT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
-    #jr, jd = 49, DOWN  # B1 -> C1 (no jump needed)
+    #jr, jd = 50, DOWN  # B1 -> C1 (no jump needed)
 
-    #jr, jd = 50, UP  # C3 -> B3
+    #jr, jd = 51, UP  # C3 -> B3
 
-    #jr, jd = 99, DOWN  # C1 -> D1
+    #jr, jd = 100, DOWN  # C1 -> D1
 
 for jc in range(101,151):  # A
     jr, jd = 1, UP  # A3 -> F3
@@ -150,9 +134,9 @@ for jr in range(1,51):  # A, B
     tr, tc, td = 151 - jr, 1, RIGHT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
-    #jc, jd = 99, RIGHT  # B0
+    #jc, jd = 100, RIGHT  # B0
 
-    #jc, jd = 100, LEFT  # A2
+    #jc, jd = 101, LEFT  # A2
 
     jc, jd = 150, RIGHT  # A0 -> D2
     tr, tc, td = 151 - jr, 100, LEFT
@@ -181,9 +165,9 @@ for jc in range(1,51):  # E, F
     tr, tc, td = jc + 50, 51, RIGHT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
-    #jr, jd = 149, DOWN  # E1 -> F1
+    #jr, jd = 150, DOWN  # E1 -> F1
 
-    #jr, jd = 150, UP  # F3 -> E3
+    #jr, jd = 151, UP  # F3 -> E3
 
     jr, jd = 200, DOWN  # F1 -> A1
     tr, tc, td = 1, jc + 100, DOWN
@@ -195,9 +179,9 @@ for jr in range(101,151):  # D, E
     tr, tc, td = 151 - jr, 51, RIGHT
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
-    #jc, jd = 49, RIGHT  # E0 -> D0
+    #jc, jd = 50, RIGHT  # E0 -> D0
 
-    #jc, jd = 50, LEFT  # D2 -> E2
+    #jc, jd = 51, LEFT  # D2 -> E2
 
     jc, jd = 100, RIGHT  # D0 -> A2
     tr, tc, td = 151 - jr, 150, LEFT
@@ -212,30 +196,17 @@ for jr in range(151,201):  # F
     tr, tc, td = 150, jr - 100, UP
     jump_list[(jr,jc,jd,)] = (tr,tc,td,)
 
-DEBUG(len(jump_list))
-
 def next_3d_move(row, col, di):
     if (row,col,di,) in jump_list:
-        DEBUG(f'jump {(row,col,di,)} -> {jump_list[(row,col,di,)]}')
         return jump_list[(row,col,di,)]
     return (row + 1*(di==DOWN) + -1*(di==UP), col + 1*(di==RIGHT) + -1*(di==LEFT), di,)
 
 r, c, d = sr, sc, sd
 for turn, walk in path:
-    DEBUG('\n'.join([r + '|' for r in maze]))
-    DEBUG('----')
-    #keypress = input()  # TODO-debug
-    maze[r-1] = maze[r-1][:c-1] + 'x' + maze[r-1][c:]
     d = (d + turn) % CIRCLE;
     for _ in range(walk):
         nr, nc, nd = next_3d_move(r, c, d)
         if char_at((nr,nc,)) != '#':
             r, c, d = nr, nc, nd
-            maze[r-1] = maze[r-1][:c-1] + 'x' + maze[r-1][c:]
-
-DEBUG(path)
-
-DEBUG('\n'.join([r + '|' for r in maze]))
-DEBUG('----')
 
 print(f'Part B: {1000*r + 4*c + d}')  # 121245 is too high
