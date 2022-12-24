@@ -10,7 +10,10 @@ print(bn.a)
 print(bn.b)
 
 bn2 = BlizzardNode()
-print(bn.a)
+print(bn2.a)
+
+print(id(bn))
+print(id(bn2))
 
 import sys
 sys.exit(0)
