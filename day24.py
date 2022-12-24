@@ -1,7 +1,7 @@
 class BlizzardNode:
     a = 0
     b = 2
-    def __init__():
+    def __init__(self):
         pass
 
 bn = BlizzardNode()
