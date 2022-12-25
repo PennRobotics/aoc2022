@@ -1,13 +1,15 @@
 #include <math.h>
+#include <stdint.h>
+#include <stdio.h>
 
 #define  DEBUG(s,v)  do{if(1){printf(s, v);}}while(0)
 
 int main() {
   FILE *fh = open("input25", "r");
   while(fh) {
-    n = 0;
+    uint64_t n = 0;
     do {
-      char ch = fh.readbytes();  // TODO: store as char array and reverse order
+      char ch = fh->readbytes();  // TODO: store as char array and reverse order
       uint8_t place = 0;
       uint64_t val;
       switch(ch) {
@@ -29,7 +31,7 @@ int main() {
       }
       n += powl(5, place) * val;
     } while (ch != '\n');
-    DEBUG("%lld\n", n)
+    DEBUG("%lld\n", n);
   }
 
   printf("Part A: %lld\n", 0);
