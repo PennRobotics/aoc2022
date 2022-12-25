@@ -101,6 +101,4 @@ int main() {
   printf("\n");
 
   free(digs);
-
-  printf("Part B: %lld\n", 0);
 }

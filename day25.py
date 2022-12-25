@@ -29,4 +29,3 @@ while True:
     del digs[pad]
 
 print(f'Part A: {"".join(reversed([snafu_map[dig] for dig in digs]))}')
-print(f'Part B: {0}')
