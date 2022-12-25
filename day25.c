@@ -1,9 +1,8 @@
 #include <math.h>
 #include <stdint.h>
 #include <stdio.h>
-// #include <stdlib.h>  // TODO: check if needed
-
-#define  DEBUG(s,v)  do{if(1){printf(s, v);}}while(0)
+#include <stdlib.h>
+#include <string.h>
 
 int digit_map(char c) {
   switch(c) {
@@ -26,38 +25,29 @@ char snafu_map(int d) {
 }
 
 int main() {
-  FILE *fh = fopen("input25", "r");
+  FILE *fh = fopen("sample25", "r");
+  //FILE *fh = fopen("input25", "r");
 
   char *line;
   size_t len;
+  uint64_t sum = 0;
   while(fh) {
-    getline(&line, &len, fh);
+    if (getline(&line, &len, fh) == -1)  { break; }
     int i;
     for(i = 0; i < len; ++i) {
-      if (line[i] == '\n')  { break; }
+      if (line[i] == '\n')  { line[i] = '\0'; break; }
       /// printf("%c", line[i]);
     }
-    uint64_t n = 0;
     for(int d=i-1, i=0; d >= 0; --d, ++i) {
-      printf("%d - %d (%c)\n", (int)pow(5, i), digit_map(line[d]), line[d]);
-      n += (int)pow(5, i) * digit_map(line[d]);
+      /// printf("%d - %d (%c)\n", (uint64_t)pow(5, i), digit_map(line[d]), line[d]);
+      sum += (uint64_t)pow(5, i) * digit_map(line[d]);
     }
-    /// malloc();
-    printf("n = %lld\n", n);
+    printf("(%s)  sum = %lld\n", line, sum);
 
-    printf("%s\n", line);
-    printf("%d\n", len);
-    char ch;
-    do {
-      uint8_t i = len;
-      ch = line[i];
-      uint8_t place = 0;
-      uint64_t val;
-      n += (int)pow(5, place) * val;
-    } while (0);
-    // TODO-debug } while (ch != '\n');
-    DEBUG("%lld\n", n);
-    break;
+    int8_t pad = 2*i;
+    printf("pad = %d\n", pad);
+    int8_t *digs = (int8_t *)malloc(pad * sizeof(int8_t));
+    memset(digs, 0, pad);
   }
 
   fclose(fh);
