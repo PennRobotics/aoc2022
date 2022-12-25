@@ -34,8 +34,8 @@ current = start
 path = [(current, 0)]
 
 wrap = lambda n,mn,mx: (n-mn)%(mx-mn)+mn
-hwrap = lambda n: wrap(1, cn)
-vwrap = lambda n: wrap(1, rn)
+vwrap = lambda n: wrap(n, 1, rn)
+hwrap = lambda n: wrap(n, 1, cn)
 
 min_t_left = lambda pt: finish[0]-pt[0] + finish[1]-pt[1]
 
@@ -61,12 +61,12 @@ print(start_bfs, finish_bfses)
 
 print_valley(list(map(lambda a:a[0], blizzard)))
 
-simple = lambda c: (int(c.real), int(c.imag),)
+simple = lambda c: (vwrap(int(c.imag)), hwrap(int(c.real)),)
 for minute in count(1):
-    storms = []
+    storms = []  # TODO: add walls here
     for pt, heading in blizzard:
         ### print(pt, heading)
-        storms.append(simple(complex(pt[0], pt[1]) + minute*heading))  # TODO: modulo
+        storms.append(simple(complex(pt[1], pt[0]) + minute*heading))
     print_valley(storms)
     input()
 
