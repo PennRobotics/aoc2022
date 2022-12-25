@@ -1,65 +1,75 @@
-class BlizzardNode:
-    a = 0
-    b = 2
-    def __init__(self):
-        pass
+# Step 1: Connect blizzard in a graph
+# Step 2: Update position of blizzard each step
+# Step 3: Party state will be (position, time)
+# Step 4: Only allow valid moves
+# Step 5: Optimum time starts as Manhattan distance to finish
+# Step 6: Create multiple BFS trees of all possible paths from the start plus
+#           t number of all possible paths from the finish going backward
+#           (t[0] is optimum time e.g. no waits, t[-1] is t moves delayed)
+#           (BFS should probably have number of branches/leaves at each node.)
+# Step 7: Because each path will have time and position, two things happen:
+#           a. The start BFS and finish BFS will not meet at wrong time.
+#           b. The finish BFS can have its shortest delay paths eliminated
+#                any time either BFS is forced to wait.
+# It shouldn't be super important, but the state of each cell will be cyclic, i.e. every least common multiple of W & H,
+#   but since there's supposed to be a solution, we won't have to deal with the BFS wrapping around on itself.
+# Step 8: If this whole thing takes too long, figure out how to switch to
+#           A*, D* Lite, whatever. There's probably a way to predict the
+#           shortest path because obstacles will soon (a few moves away)
+#           and predictably change the cost of a path.
 
-bn = BlizzardNode()
-bn.a = 5
-print(bn.a)
-print(bn.b)
+from itertools import count
 
-bn2 = BlizzardNode()
-print(bn2.a)
-
-print(id(bn))
-print(id(bn2))
-
-import sys
-sys.exit(0)
-
-### from collections import defaultdict
-### from itertools import count
-### 
-### is_north_empty = lambda p: (p[0]-1, p[1]-1) not in elves and (p[0]-1, p[1]) not in elves and (p[0]-1, p[1]+1) not in elves
-### is_south_empty = lambda p: (p[0]+1, p[1]-1) not in elves and (p[0]+1, p[1]) not in elves and (p[0]+1, p[1]+1) not in elves
-### is_west_empty = lambda p: (p[0]-1, p[1]-1) not in elves and (p[0], p[1]-1) not in elves and (p[0]+1, p[1]-1) not in elves
-### is_east_empty = lambda p: (p[0]-1, p[1]+1) not in elves and (p[0], p[1]+1) not in elves and (p[0]+1, p[1]+1) not in elves
-### is_perimeter_empty = lambda p: is_north_empty(p) and is_south_empty(p) and is_west_empty(p) and is_east_empty(p)
-### 
-### north_of = lambda p: (p[0]-1, p[1])
-### south_of = lambda p: (p[0]+1, p[1])
-### west_of = lambda p: (p[0], p[1]-1)
-### east_of = lambda p: (p[0], p[1]+1)
-### 
-### heading_at_round_start = 1j
-### 
+blizzard = []
 #with open('sample24','r') as file:
 with open('input24','r') as file:
-    blizzard = [line[:-1] for line in file]
-### ROW_MIN, ROW_MAX, COL_MIN, COL_MAX = 0, len(puzzle)-1, 0, len(puzzle[0])-1
-### elves = set([(row_nr, col_nr) for row_nr, row in enumerate(puzzle) for col_nr, ch in enumerate(row) if ch == '#'])
-### 
-### def get_row_col_bounds():
-###     rows, cols = zip(*[(r,c) for r,c in elves])
-###     return min(rows), max(rows), min(cols), max(cols)
-### 
-### def draw_board():
-###     min_row, max_row, min_col, max_col = get_row_col_bounds()
-###     row_range = range(min(min_row, ROW_MIN), 1 + max(max_row, ROW_MAX))
-###     col_range = range(min(min_col, COL_MIN), 1 + max(max_col, COL_MAX))
-###     for r in row_range:
-###         for c in col_range:
-###             print(f'{"#" if (r,c) in elves else "."}', end='')
-###         print()
-###     print(flush=True)
-### 
-### #print('== Initial State ==')
-### #draw_board()
-### 
-### for round_nr in count(1):
-###     round_dir = 1j**((round_nr-1)%4)
-###     proposed_moves = defaultdict(lambda:[])
+    for rn, line in enumerate(file):
+        for cn, ch in enumerate(line):
+            if ch in '#.\n':
+                continue
+            blizzard.append(((rn, cn), (ch=='>') + 1j*(ch=='^') - (ch=='<') - 1j*(ch=='v')))
+start, finish = (0, 1), (rn, cn-1)
+current = start
+
+path = [(current, 0)]
+
+wrap = lambda n,mn,mx: (n-mn)%(mx-mn)+mn
+hwrap = lambda n: wrap(1, cn)
+vwrap = lambda n: wrap(1, rn)
+
+min_t_left = lambda pt: finish[0]-pt[0] + finish[1]-pt[1]
+
+for i in range(-3,10):
+    print(f'{i}  --  {wrap(i,3,7)}')
+    ### print(f'{i*1j}  --  {wrap(i*1j,3j,7j)}')
+
+print(blizzard)
+print(list(map(lambda a:a[0], blizzard)))
+
+def print_valley(storm_list):
+    for row in range(1 + finish[0]):
+        for col in range(2 + finish[1]):
+            #ch = 'x' if (row, col,) in map(lambda a:a[0], blizzard) else '.'
+            ch = 'x' if (row, col,) in storm_list else '.'
+            print(ch, end='')
+        print()
+    print()
+
+start_bfs = []
+finish_bfses = [[] * 10]
+print(start_bfs, finish_bfses)
+
+print_valley(list(map(lambda a:a[0], blizzard)))
+
+simple = lambda c: (int(c.real), int(c.imag),)
+for minute in count(1):
+    storms = []
+    for pt, heading in blizzard:
+        ### print(pt, heading)
+        storms.append(simple(complex(pt[0], pt[1]) + minute*heading))  # TODO: modulo
+    print_valley(storms)
+    input()
+
 ###     for elf in sorted(elves):
 ###         if is_perimeter_empty(elf):
 ###             proposed_moves[elf].append(elf)
