@@ -30,27 +30,28 @@ int main() {
 
   char *line;
   size_t len;
+  int i;
   uint64_t sum = 0;
-  while(fh) {
-    if (getline(&line, &len, fh) == -1)  { break; }
-    int i;
+  int8_t *digs;
+  while( getline(&line, &len, fh) != -1 ) {
     for(i = 0; i < len; ++i) {
       if (line[i] == '\n')  { line[i] = '\0'; break; }
-      /// printf("%c", line[i]);
     }
     for(int d=i-1, i=0; d >= 0; --d, ++i) {
-      /// printf("%d - %d (%c)\n", (uint64_t)pow(5, i), digit_map(line[d]), line[d]);
       sum += (uint64_t)pow(5, i) * digit_map(line[d]);
     }
-    printf("(%s)  sum = %lld\n", line, sum);
-
-    int8_t pad = 2*i;
-    printf("pad = %d\n", pad);
-    int8_t *digs = (int8_t *)malloc(pad * sizeof(int8_t));
-    memset(digs, 0, pad);
   }
 
   fclose(fh);
+
+  printf("(%s)  sum = %lld\n", line, sum);
+
+  int8_t pad = 2*i;
+  printf("pad = %d\n", pad);
+  digs = (int8_t *)malloc(pad * sizeof(int8_t));
+  memset(digs, 0, pad);
+
+  free(digs);
 
   printf("Part A: %lld\n", 0);
   printf("Part B: %lld\n", 0);
