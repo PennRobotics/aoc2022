@@ -29,9 +29,6 @@ with open('input24','r') as file:
                 continue
             blizzard.append(((rn, cn), (ch=='>') + 1j*(ch=='^') - (ch=='<') - 1j*(ch=='v')))
 start, finish = (0, 1), (rn, cn-1)
-current = start
-
-path = [(current, 0)]
 
 wrap = lambda n,mn,mx: (n-mn)%(mx-mn)+mn
 vwrap = lambda n: wrap(n, 1, rn)
@@ -39,21 +36,16 @@ hwrap = lambda n: wrap(n, 1, cn)
 
 min_t_left = lambda pt: finish[0]-pt[0] + finish[1]-pt[1]
 
-for i in range(-3,10):
-    print(f'{i}  --  {wrap(i,3,7)}')
-    ### print(f'{i*1j}  --  {wrap(i*1j,3j,7j)}')
-
-print(blizzard)
-print(list(map(lambda a:a[0], blizzard)))
-
 def print_valley(storm_list):
-    for row in range(1 + finish[0]):
-        for col in range(2 + finish[1]):
-            #ch = 'x' if (row, col,) in map(lambda a:a[0], blizzard) else '.'
+    for row in range(1 + finish[0]):  # TODO: off-by-one?
+        for col in range(2 + finish[1]):  # TODO: off-by-one?
             ch = 'x' if (row, col,) in storm_list else '.'
             print(ch, end='')
         print()
     print()
+
+current = start
+path = [(current, 0)]
 
 start_bfs = []
 finish_bfses = [[] * 10]
@@ -70,45 +62,5 @@ for minute in count(1):
     print_valley(storms)
     input()
 
-###     for elf in sorted(elves):
-###         if is_perimeter_empty(elf):
-###             proposed_moves[elf].append(elf)
-###             continue
-###         for try_dir in [round_dir * 1j**j for j in range(4)]:
-###             match try_dir:
-###                 case 1:
-###                     if wants_to_move := is_north_empty(elf):
-###                         proposed_moves[north_of(elf)].append(elf)
-###                 case 1j:
-###                     if wants_to_move := is_south_empty(elf):
-###                         proposed_moves[south_of(elf)].append(elf)
-###                 case -1:
-###                     if wants_to_move := is_west_empty(elf):
-###                         proposed_moves[west_of(elf)].append(elf)
-###                 case -1j:
-###                     if wants_to_move := is_east_empty(elf):
-###                         proposed_moves[east_of(elf)].append(elf)
-###             if wants_to_move:
-###                 break
-###         if not wants_to_move:
-###             proposed_moves[elf].append(elf)
-### 
-###     next_elves = set()
-###     for pmove, movers in proposed_moves.items():
-###         if len(movers) > 1:
-###             next_elves |= set(movers)
-###         else:
-###             next_elves |= set([pmove,])
-### 
-###     if elves == next_elves:
-###         break
-### 
-###     elves = next_elves
-###     #print(f'== End of Round {round_nr} ==')
-###     #draw_board()
-### 
-###     if round_nr == 10:
-###         r1, r2, c1, c2 = get_row_col_bounds()
-### 
 print(f'Part A: {0}')
 print(f'Part B: {0}')
