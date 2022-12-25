@@ -14,7 +14,7 @@ int main() {
     getline(&line, &len, fh);
     char ch;
     do {
-      uint8_t i;
+      uint8_t i = len;
       ch = line[i];
       uint8_t place = 0;
       uint64_t val;
@@ -34,10 +34,14 @@ int main() {
         case '2':
           val = 2;
           break;
+        default:
+          val = -1000;
       }
       n += (int)pow(5, place) * val;
-    } while (ch != '\n');
+    } while (0);
+    // TODO-debug } while (ch != '\n');
     DEBUG("%lld\n", n);
+    break;
   }
 
   fclose(fh);
