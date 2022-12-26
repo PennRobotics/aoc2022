@@ -1,5 +1,3 @@
-DEBUG = print if True else lambda *s: None
-
 class Node:
     def __init__(self, val):
         self.val = val
