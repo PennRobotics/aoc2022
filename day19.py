@@ -17,10 +17,9 @@ blueprints = [blueprints[0]]  # TODO-debug
 
 t_to_build = lambda cost, cur, rate: (cost-cur)//rate  # TODO: this should be ceil and not floor
 
-def search(state)
+def search(state):
     if t >= 24:
-        break
-
+        return state[4]
     if x >= cx4 and o >= co4:  # Geode
         state[8] += 1
         state[1] -= co4
@@ -54,7 +53,7 @@ quality_level = 0
 for b, co1, co2, co3, cc3, co4, cx4 in blueprints:
     o, c, x, g, r1, r2, r3, r4 = 0, 0, 0, 0, 1, 0, 0, 0
     t = 0
-    state = [[t, o, c, x, g, r1, r2, r3, r4]]
+    state = [t, o, c, x, g, r1, r2, r3, r4]
     search(state)
 
 print(f'Part A: {0}')
