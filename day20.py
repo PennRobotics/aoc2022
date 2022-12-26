@@ -9,30 +9,35 @@ class Node:
     def jump_by_n(self, n):
         if n == 0:
             return
-        travel_node = self
+        bf, af = self.pr, self.nx
+        bf.redefine_next_as(af)
         if n > 0:
-            for _ in range(n):
-                travel_node = travel_node.nx
+            target_node = self.nx
+            for _ in range(n-1):
+                target_node = target_node.nx
         if n < 0:
-            for _ in range(-n+1):
-                travel_node = travel_node.pr
-        move_node = self._pop_node()
-        travel_node._insert_node_after(move_node)
+            target_node = self.pr
+            for _ in range(-n):
+                target_node = target_node.pr
+
+        #   MOVING b:
+        #
+        #    +---------+
+        #    |         |
+        #    |         v
+        # a [b] c d e f g h
+        #
+        # Link a (b.pr) to c (b.nx)
+        # Link f (target) to b
+        # Link b to g (target.nx)
+
+        af_target_node = target_node.nx
+        target_node.redefine_next_as(self)
+        self.redefine_next_as(af_target_node)
 
     def redefine_next_as(self, nx):
         self.nx = nx
         nx.pr = self
-
-    def _pop_node(self):
-        bf_node, af_node = self.pr, self.nx
-        bf_node.redefine_next_as(af_node)
-        self.nx, self.pr = None, None
-        return self
-
-    def _insert_node_after(self, node):
-        af_node = self.nx
-        self.redefine_next_as(node)
-        node.redefine_next_as(af_node)
 
 
 def node_segment_list(i, j):
