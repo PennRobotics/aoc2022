@@ -12,6 +12,7 @@ blueprints = [blueprints[0]]  # TODO-debug
 t_to_build = lambda cost, cur, rate: math.ceil((cost-cur)/rate)
 
 def search(t, o, c, x, g, r1, r2, r3, r4):
+    DEBUG(t, o, c, x, g, r1, r2, r3, r4)
     if t >= 24:
         return g
     if x >= cx4 and o >= co4:  # Geode
