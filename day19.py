@@ -39,7 +39,7 @@ def search(state):
             state[5] += 1
             state[1] -= co1
             bt = t_to_build(co1, o, r1)
-    bt = 0  # TODO: bt needs to be properly assigned. rethink if-elif-else order!
+    bt = 1  # TODO: bt needs to be properly assigned. rethink if-elif-else order!
 
     state[0] = t + bt
     state[1] += r1 * bt
@@ -47,7 +47,9 @@ def search(state):
     state[3] += r3 * bt
     state[4] += r4 * bt
 
-    search(state)
+    DEBUG(state[0])
+
+    return search(state)
 
 quality_level = 0
 for b, co1, co2, co3, cc3, co4, cx4 in blueprints:
