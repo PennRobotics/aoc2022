@@ -23,7 +23,7 @@ def search(t, o, c, x, g, r1, r2, r3, r4):
         c += r2 * bt
         x += r3 * bt
         g += r4 * bt
-        search(t, o, c, x, g, r1, r2, r3, r4+1)
+        search(t + bt, o, c, x, g, r1, r2, r3, r4+1)
     if c >= cc3 and o >= co3 and r3 < cx4:  # Obsidian
         o -= co3
         c -= cc3
@@ -33,7 +33,7 @@ def search(t, o, c, x, g, r1, r2, r3, r4):
         c += r2 * bt
         x += r3 * bt
         g += r4 * bt
-        search(t, o, c, x, g, r1, r2, r3+1, r4)
+        search(t + bt, o, c, x, g, r1, r2, r3+1, r4)
     if o >= co2 and r2 < cc3:  # Clay
         o -= co2
         bt = t_to_build(co2, o, r1)
@@ -42,16 +42,10 @@ def search(t, o, c, x, g, r1, r2, r3, r4):
         c += r2 * bt
         x += r3 * bt
         g += r4 * bt
-        search(t, o, c, x, g, r1, r2+1, r3, r4)
+        search(t + bt, o, c, x, g, r1, r2+1, r3, r4)
     if r1 < max(co1, co2, co3, co4):  # Saturation (cannot create more than one bot per turn for any material)
-        o -= co1
         bt = t_to_build(co1, o, r1)
-        t = t + bt
-        o += r1 * bt
-        c += r2 * bt
-        x += r3 * bt
-        g += r4 * bt
-        search(t, o, c, x, g, r1+1, r2, r3, r4)
+        search(t + bt, o+r1*bt-co1, c+r2*bt, x+r3*bt, g+r4*bt, r1+1, r2, r3, r4)
 
 
 quality_level = 0
