@@ -42,10 +42,9 @@ def node_segment_list(i, j):
     for _ in range(i):
         ni = ni.nx
     seg = [ni.val]
-    nj = ni
     for _ in range(j-i):
-        seg.append(nj.val)
-        nj = nj.nx
+        ni = ni.nx
+        seg.append(ni.val)
     return seg
 
 #with open('sample20', 'r') as file:
