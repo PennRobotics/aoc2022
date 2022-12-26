@@ -27,59 +27,32 @@ for b, co1, co2, co3, cc3, co4, cx4 in blueprints:
         for ostate in possible_states:
             state = copy(ostate)
             _, o, c, x, g, r1, r2, r3, r4 = state
+
             state[0] = t
-
-            make_r = 0
-            if True and o >= co1:  # TODO: conditions for building ore
-                DEBUG(f'Spend {co1} ore to start building an ore-collecting robot.')
-                make_r = 1
-            elif True and o >= co2:  # TODO ...
-                DEBUG(f'Spend {co2} ore to start building a clay-collecting robot.')
-                make_r = 2
-            elif True and o >= co3 and c >= cc3:
-                DEBUG(f'Spend {co3} ore and {cc3} clay to start building an obsidian-collecting robot.')
-                make_r = 3
-            elif True and o >= co4 and x >= cx4:
-                DEBUG(f'Spend {co4} ore and {cx4} obsidian to start building a geode-cracking robot.')
-                make_r = 4
-
             state[1] += r1
             state[2] += r2
             state[3] += r3
             state[4] += r4
 
-            DEBUG(f'{r1} ore-collecting robot{"s" if r1 > 1 else ""} collect{"s" if r1 == 1 else ""} {r1} ore; you now have {state[1]} ore.')
-            if r2:
-                DEBUG(f'{r2} clay-collecting robot{"s" if r2 > 1 else ""} collect{"s" if r2 == 1 else ""} {r2} clay; you now have {state[2]} clay.')
-            if r3:
-                DEBUG(f'{r3} obsidian-collecting robot{"s" if r3 > 1 else ""} collect{"s" if r3 == 1 else ""} {r3} obsidian; you now have {state[3]} obsidian.')
-            if r4:
-                s, ns = ('s', '') if r4 > 1 else ('', 's')
-                sss = 's' if state[4] > 1 else ''
-                DEBUG(f'{r4} geode-cracking robot{s} crack{ns} {r4} geode{s}; you now have {state[4]} open geode{sss}.')
-
-            if make_r:
-                state[make_r + 4] += 1
-                r_type = 'ore-collecting' if make_r == 1 else 'clay-collecting' if make_r == 2 else 'obsidian-collecting' if make_r == 3 else 'geode-cracking'
-                DEBUG(f'The new {r_type} robot is ready; you now have {state[make_r + 4]} of them.')
-
             if x >= cx4 and o >= co4:  # Geode
+                state[8] += 1
                 o -= co4
                 state[1] -= co4
                 x -= cx4
                 state[3] -= cx4
-                pass #new_state[1] = GEODE_ROBOT  # Greedy creation of geodes
             if c >= cc3 and o >= co3 and r3 < cx4:  # Obsidian
+                state[7] += 1
                 o -= co3
                 state[1] -= co3
                 c -= cc3
                 state[2] -= cc3
-                pass
             if o >= co2 and r2 < cc3:  # Clay
+                state[6] += 1
                 o -= co2
                 state[1] -= co2
             if co1 <= co2:  # Ore
                 if o >= co1 and r1 < max(co1, co2, co3, co4):  # Saturation (cannot create more than one bot per turn for any material)
+                    state[5] += 1
                     o -= co1
                     state[1] -= co1
             possible_states.append(state)
