@@ -15,7 +15,7 @@ def search(state):
     if t >= 24:
         return state[4]
     if x >= cx4 and o >= co4:  # Geode
-        print(f'1: {r4}')
+        print(f'4: {r4}')
         state[8] += 1
         state[1] -= co4
         state[3] -= cx4
@@ -27,7 +27,7 @@ def search(state):
         state[4] += r4 * bt
         search(state)
     if c >= cc3 and o >= co3 and r3 < cx4:  # Obsidian
-        print(f'1: {r3}')
+        print(f'3: {r3}')
         state[7] += 1
         state[1] -= co3
         state[2] -= cc3
@@ -39,7 +39,7 @@ def search(state):
         state[4] += r4 * bt
         search(state)
     if o >= co2 and r2 < cc3:  # Clay
-        print(f'1: {r2}')
+        print(f'2: {r2}')
         state[6] += 1
         state[1] -= co2
         bt = t_to_build(co2, o, r1)
