@@ -1,7 +1,7 @@
 DEBUG = print if True else lambda *s: None
 
+import math
 import re
-from copy import copy
 
 NOTHING        = 0
 ORE_ROBOT      = 1
@@ -15,7 +15,7 @@ with open('input19', 'r') as file:
 
 blueprints = [blueprints[0]]  # TODO-debug
 
-t_to_build = lambda cost, cur, rate: (cost-cur)//rate  # TODO: this should be ceil and not floor
+t_to_build = lambda cost, cur, rate: math.ceil((cost-cur)/rate)
 
 def search(state):
     if t >= 24:
