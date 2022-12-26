@@ -13,11 +13,11 @@ class Node:
         bf.redefine_next_as(af)
         if n > 0:
             target_node = self.nx
-            for _ in range(n-1):
+            for _ in range((n-1)%4999):
                 target_node = target_node.nx
         if n < 0:
             target_node = self.pr
-            for _ in range(-n):
+            for _ in range((-n)%4999):
                 target_node = target_node.pr
 
         #   MOVING b:
@@ -69,9 +69,24 @@ last_n.redefine_next_as(first_n)
 for mvmt in docket:
     mvmt.jump_by_n(mvmt.val)
 
-
 part_a = sum(node_segment_list(1000, 1000) + node_segment_list(2000, 2000) + node_segment_list(3000, 3000))
 
+print(f'Part A: {part_a}')
 
-print(f'Part A: {part_a}')  # 1644 is too low
-print(f'Part B: {0}')
+DKEY = 811589153
+first_n = Node(values[0] * DKEY)
+last_n = first_n
+docket = [first_n]
+for v in values[1:]:
+    nv = Node(v * DKEY)
+    last_n.redefine_next_as(nv)
+    docket.append(nv)
+    last_n = nv
+last_n.redefine_next_as(first_n)
+
+for mvmt in docket * 10:
+    mvmt.jump_by_n(mvmt.val)
+
+part_b = sum(node_segment_list(1000, 1000) + node_segment_list(2000, 2000) + node_segment_list(3000, 3000))
+
+print(f'Part B: {part_b}')
