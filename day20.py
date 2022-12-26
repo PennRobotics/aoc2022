@@ -1,22 +1,10 @@
 DEBUG = print if True else lambda *s: None
 
 class Node:
-    def __init__(self, val, head=False):
-        global global_head
+    def __init__(self, val):
         self.val = val
         self.pr = None
         self.nx = None
-        if head:
-            global_head = self
-        self.head = global_head
-
-    def rerefer_chain_to_head(self):  # Call after assigning global_head.pr but before closing the circle
-        global global_head
-        redo_node = self
-        redo_node.head = global_head
-        while redo_node.pr != None:
-            redo_node = redo_node.pr
-            redo_node.head = global_head
 
     def jump_by_n(self, n):
         if n == 0:
@@ -48,8 +36,9 @@ class Node:
 
 
 def node_segment_list(i, j):
-    global global_head
-    ni = global_head
+    ni = first_n
+    while ni.val != 0:
+        ni = ni.nx
     for _ in range(i):
         ni = ni.nx
     seg = [ni.val]
@@ -63,16 +52,14 @@ def node_segment_list(i, j):
 with open('input20', 'r') as file:
     values = [int(n) for n in file.read().rstrip('\n').split('\n')]
 
-global_head = None
 first_n = Node(values[0])
 last_n = first_n
 docket = [first_n]
 for v in values[1:]:
-    nv = Node(v, head=(v==0))
+    nv = Node(v)
     last_n.redefine_next_as(nv)
     docket.append(nv)
     last_n = nv
-global_head.rerefer_chain_to_head()
 last_n.redefine_next_as(first_n)
 
 for mvmt in docket:
