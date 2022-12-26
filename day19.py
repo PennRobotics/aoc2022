@@ -32,27 +32,15 @@ for b, co1, co2, co3, cc3, co4, cx4 in blueprints:
             make_r = 0
             if True and o >= co1:  # TODO: conditions for building ore
                 DEBUG(f'Spend {co1} ore to start building an ore-collecting robot.')
-                o -= co1
-                state[1] -= co1
                 make_r = 1
             elif True and o >= co2:  # TODO ...
                 DEBUG(f'Spend {co2} ore to start building a clay-collecting robot.')
-                o -= co2
-                state[1] -= co2
                 make_r = 2
             elif True and o >= co3 and c >= cc3:
                 DEBUG(f'Spend {co3} ore and {cc3} clay to start building an obsidian-collecting robot.')
-                o -= co3
-                state[1] -= co3
-                c -= cc3
-                state[2] -= cc3
                 make_r = 3
             elif True and o >= co4 and x >= cx4:
                 DEBUG(f'Spend {co4} ore and {cx4} obsidian to start building a geode-cracking robot.')
-                o -= co4
-                state[1] -= co4
-                x -= cx4
-                state[3] -= cx4
                 make_r = 4
 
             state[1] += r1
@@ -75,40 +63,26 @@ for b, co1, co2, co3, cc3, co4, cx4 in blueprints:
                 r_type = 'ore-collecting' if make_r == 1 else 'clay-collecting' if make_r == 2 else 'obsidian-collecting' if make_r == 3 else 'geode-cracking'
                 DEBUG(f'The new {r_type} robot is ready; you now have {state[make_r + 4]} of them.')
 
-            if co1 > co2:
-                DEBUG('!!')
-                if o >= co1 and r1 < max(co1, co2, co3, co4):  # Saturation (cannot create more than one bot per turn for any material)
-                    DEBUG('??')
-                    #new_state = copy(state)
-                    #new_state[1] = ORE_ROBOT  # TODO: move construction decision (from above) here or vice versa (e.g. combine these sections)
-                    #if new_state not in possible_states:
-                        #new_states.append(new_state)
-            if o >= co2 and r2 < cc3:  # Saturation
-                #new_state = copy(state)
-                #new_state[1] = CLAY_ROBOT
-                #if new_state not in possible_states:
-                    #new_states.append(new_state)
-                pass
-            if co1 <= co2:
-                if o >= co1 and r1 < max(co1, co2, co3, co4):  # Saturation (cannot create more than one bot per turn for any material)
-                    pass
-                    #new_state = copy(state)
-                    #new_state[1] = ORE_ROBOT
-                    #if new_state not in possible_states:
-                        #new_states.append(new_state)
-            if c >= cc3 and o >= co3 and r3 < cx4:
-                pass
-                #new_state = copy(state)
-                #new_state[1] = OBSIDIAN_ROBOT  # Greedy-ish creation of obsidian
-                #if new_state not in possible_states:
-                    #new_states.append(new_state)
-            #new_state = copy(state)
-            if x >= cx4 and o >= co4:
+            if x >= cx4 and o >= co4:  # Geode
+                o -= co4
+                state[1] -= co4
+                x -= cx4
+                state[3] -= cx4
                 pass #new_state[1] = GEODE_ROBOT  # Greedy creation of geodes
-            else:
-                pass #new_state[1] = NOTHING
-            #if new_state not in possible_states:
-                #new_states.append(new_state)
+            if c >= cc3 and o >= co3 and r3 < cx4:  # Obsidian
+                o -= co3
+                state[1] -= co3
+                c -= cc3
+                state[2] -= cc3
+                pass
+            if o >= co2 and r2 < cc3:  # Clay
+                o -= co2
+                state[1] -= co2
+            if co1 <= co2:  # Ore
+                if o >= co1 and r1 < max(co1, co2, co3, co4):  # Saturation (cannot create more than one bot per turn for any material)
+                    o -= co1
+                    state[1] -= co1
+            possible_states.append(state)
 
     # TODO: check if the candidate state is feasible (can a geode robot be build by 23m?) or even optimal (how many geode robots COULD be built given a set of inputs?)
     # TODO: choose top state, go to next blueprint
