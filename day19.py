@@ -9,7 +9,7 @@ with open('input19', 'r') as file:
 
 blueprints = [blueprints[0]]  # TODO-debug
 
-t_to_build = lambda cost, cur, rate: math.ceil((cost-cur)/rate)
+t_to_build = lambda cost, cur, rate: max(1, math.ceil((cost-cur)/rate))
 
 def search(t, o, c, x, g, r1, r2, r3, r4):
     global max_g
