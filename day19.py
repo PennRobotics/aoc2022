@@ -14,15 +14,15 @@ t_to_build = lambda cost, cur, rate: max(1, math.ceil((cost-cur)/rate))
 def search(t, o, c, x, g, r1, r2, r3, r4):
     global max_g
     #DEBUG(t, o, c, x, g, r1, r2, r3, r4)
-    if t >= 24 and g > max_g:
-        max_g = g
+    if t >= 24:
+        if g > max_g:
+            max_g = g
         return g
     if r3:  # Geode
         bt = max(t_to_build(cx4, x, r3), t_to_build(co4, o, r1))
         search(t + bt, o+r1*bt-co4, c+r2*bt, x+r3*bt-cx4, g+r4*bt, r1, r2, r3, r4+1)
     if r2:  # Obsidian
         bt = max(t_to_build(cc3, c, r2), t_to_build(co3, o, r1))
-        print(bt)
         search(t + bt, o+r1*bt-co3, c+r2*bt-cc3, x+r3*bt, g+r4*bt, r1, r2, r3+1, r4)
     if r2 < cc3:  # Clay
         bt = t_to_build(co2, o, r1)
@@ -38,7 +38,8 @@ for b, co1, co2, co3, cc3, co4, cx4 in blueprints:
     o, c, x, g, r1, r2, r3, r4 = 0, 0, 0, 0, 1, 0, 0, 0
     t = 0
     max_g = 0
-    print(search(t, o, c, x, g, r1, r2, r3, r4))
+    search(t, o, c, x, g, r1, r2, r3, r4)
+    print(max_g)
 
 print(f'Part A: {0}')
 print(f'Part B: {0}')
