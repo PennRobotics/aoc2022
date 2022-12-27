@@ -33,7 +33,7 @@ quality_level = 0
 for b, co1, co2, co3, cc3, co4, cx4 in blueprints:
     o, c, x, g, r1, r2, r3, r4 = 0, 0, 0, 0, 1, 0, 0, 0
     t = 0
-    search(t, o, c, x, g, r1, r2, r3, r4)
+    print(search(t, o, c, x, g, r1, r2, r3, r4))
 
 print(f'Part A: {0}')
 print(f'Part B: {0}')
