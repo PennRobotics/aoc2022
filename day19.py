@@ -34,15 +34,17 @@ def search(t, o, c, x, g, r1, r2, r3, r4, minutes):
 
 
 max_g = None
-quality_level = 0
-for b, co1, co2, co3, cc3, co4, cx4 in blueprints:
-    o, c, x, g, r1, r2, r3, r4 = 0, 0, 0, 0, 1, 0, 0, 0
-    t = 0
-    max_g = 0
-    search(t, o, c, x, g, r1, r2, r3, r4, 23)
-    quality_level += b * max_g
+### quality_level = 0
+### for b, co1, co2, co3, cc3, co4, cx4 in blueprints:
+###     o, c, x, g, r1, r2, r3, r4 = 0, 0, 0, 0, 1, 0, 0, 0
+###     t = 0
+###     max_g = 0
+###     search(t, o, c, x, g, r1, r2, r3, r4, 23)
+###     quality_level += b * max_g
+### 
+### print(f'Part A: {quality_level}')
 
-print(f'Part A: {quality_level}')
+print(blueprints)
 
 quality_level = 0
 for b, co1, co2, co3, cc3, co4, cx4 in blueprints[:3]:
