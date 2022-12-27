@@ -7,17 +7,17 @@ import re
 with open('input19', 'r') as file:
     blueprints = [map(int, re.findall(r'\d+', l)) for l in file.read().rstrip('\n').split('\n')]
 
-blueprints = [blueprints[0]]  # TODO-debug
-
 t_to_build = lambda cost, cur, rate: max(1, math.ceil((cost-cur)/rate))
 
 def search(t, o, c, x, g, r1, r2, r3, r4):
     global max_g
     #DEBUG(t, o, c, x, g, r1, r2, r3, r4)
-    if t >= 24:
+    if t == 24:
         if g > max_g:
             max_g = g
         return g
+    if t > 24:
+        return
     if r3:  # Geode
         bt = max(t_to_build(cx4, x, r3), t_to_build(co4, o, r1))
         search(t + bt, o+r1*bt-co4, c+r2*bt, x+r3*bt-cx4, g+r4*bt, r1, r2, r3, r4+1)
@@ -30,6 +30,7 @@ def search(t, o, c, x, g, r1, r2, r3, r4):
     if r1 < max(co2, co3, co4):  # Saturation (cannot create more than one bot per turn for any material)
         bt = t_to_build(co1, o, r1)
         search(t + bt, o+r1*bt-co1, c+r2*bt, x+r3*bt, g+r4*bt, r1+1, r2, r3, r4)
+    return max_g
 
 
 max_g = None
@@ -39,7 +40,7 @@ for b, co1, co2, co3, cc3, co4, cx4 in blueprints:
     t = 0
     max_g = 0
     search(t, o, c, x, g, r1, r2, r3, r4)
-    print(max_g)
+    quality_level += b * max_g
 
-print(f'Part A: {0}')
+print(f'Part A: {quality_level}')
 print(f'Part B: {0}')
